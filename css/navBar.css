@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Bungee+Spice&family=Charm:wght@400;700&family=Rouge+Script&family=Titan+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+    transition: all 0.4s ease-in-out;
+}
+body{
+    overflow-x: hidden;
+    background-color: rgb(255, 209, 178);
+}
+.navigation{
+    background-color: rgb(255, 209, 178);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 3vw;
+    width: 95vw;
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    border-bottom: 5px solid rgb(255, 102, 0);
+    box-shadow: 0px 0px 5px rgb(107, 0, 143);
+}
+.logo{
+    width: 80px;
+    height: 80px;
+}
+.title{
+    width: 80%;
+    text-align: center;
+}
+.title p{
+    font-size: 28pt;
+    color: rgb(107, 0, 143);
+    font-weight: 900;
+    font-family: "Charm", cursive;
+}
+.horizontal_menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+.horizontal_menu ul li{
+    padding: 0vh 5vw;
+}
+.horizontal_menu ul li a{
+    color: rgb(107, 0, 143);
+    text-decoration: none;
+    font-size: 16pt;
+    font-weight: bold;
+    font-family: candara;
+}
+.horizontal_menu ul li a:hover{
+    color: rgb(255, 102, 0);
+    text-decoration: overline;
+}
+.menu_icon{
+    width: 30px;
+    height: 30px;
+    display: none;
+}
+.vertical_menu{
+    /* display: none; */
+    position: fixed;
+}
+@media(max-width: 1200px){
+    .title p{
+        font-size: 18pt;
+    }
+}
+@media(max-width: 900px){
+    .navigation{
+        width: 93vw;
+        padding: 1vh 4vw;
+    }
+    .title p{
+        font-size: 16pt;
+    }
+    .horizontal_menu{
+        display: none;
+    }
+    .menu_icon{
+        display: block;
+        padding: 1%;
+        cursor: pointer;
+    }
+    .vertical_menu.open{
+        /* display: block; */
+        background-color:rgb(255, 102, 0);
+        width: 91vw;
+        padding: 15vh 5vw 2vh 5vw;
+        animation: dropdown 2s ease-in-out normal;
+        animation: appear 1s 2s ease-in-out normal;
+    }
+    .vertical_menu ul{
+        list-style: none;
+        /* animation: appear 1s 2s ease-in-out normal; */
+    }
+    .vertical_menu ul li{
+        margin-bottom: 2vh;
+        /* animation: appear 1s 2s ease-in-out normal; */
+    }
+    .vertical_menu ul li a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-size: 14pt;
+        /* animation: appear 1s 2s ease-in-out normal; */
+    }
+    .vertical_menu ul li a:hover{
+        color: rgb(107, 0, 143);
+    }
+    @keyframes dropdown {
+        from{
+            height: 0;
+            font-size: 0pt;
+            color: rgba(255, 255, 255, 0);
+        }
+        to{
+            height: 15vh;
+            font-size: 14pt;
+            color: white;
+        }
+    }
+    @keyframes appear{
+        from{
+            font-size: 0pt;
+            color: rgba(255, 255, 255, 0);
+        }
+        to{
+            font-size: 14pt;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,137 @@
+.forms{
+    padding: 16vh 5vw 5vh 5vw;
+}
+.passenger{
+    background-color: aliceblue;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.433);
+    border-radius: 20px;
+    padding: 2vh 2vw;
+    width: 70vw;
+    margin: 5vh auto;
+}
+.passenger h1{
+    font-size: 20pt;
+    font-family: candara;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.intro{
+    font-size: 16pt;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.columns{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 5vh;
+    border-bottom: 5px solid black;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.252);
+    margin-bottom: 5vh;
+    padding: 2%;
+    width: 100%;
+}
+.inputs:hover{
+    background-color: white;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 255, 0.479);
+}
+.icons{
+    width: 30px;
+    height: 30px;
+}
+input{
+    width: 80%;
+    border: none;
+    font-size: 14pt;
+    font-family: Libre sans;
+    background-color: transparent;
+}
+input:focus{
+    outline: none;
+    border: none;
+}
+.gender{
+    border: none;
+    width: 80%;
+    font-size: 14pt;
+    background-color: transparent;
+}
+.gender:focus{
+    outline: none;
+    border: none;
+}
+.alert{
+    font-size: 08pt;
+    color: red;
+    margin: -3vh 0vw 2vh 0vw;
+}
+.center{
+    min-height: 35vh;
+    width: 7px;
+    background-color: rgb(107, 0, 143);
+    border-radius: 5px;
+}
+.total{
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    /* font-family: candara; */
+}
+.checkout{
+    background-color: rgb(255, 102, 0);
+    color: rgb(107, 0, 143);
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    margin-top: 5vh;
+    border-radius: 10px;
+    font-size: 14pt;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.checkout:hover{
+    background-color: rgb(107, 0, 143);
+    color: rgb(255, 102, 0);
+}
+@media(max-width: 1000px){
+    .passenger{
+        width: 80vw;
+    }
+    .columns{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .center{
+        min-height: 7px;
+        height: 7px;
+        width: 100%;
+        margin-bottom: 5vh;
+    }
+    .checkout{
+        margin: 0vh 0vw 2vh 0vw;
+    }
+}
