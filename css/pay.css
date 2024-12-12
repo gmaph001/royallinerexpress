@@ -1,0 +1,102 @@
+.pay{
+    padding-top: 16vh;
+}
+.form{
+    background-color: aliceblue;
+    width: 40vw;
+    margin: 5vh auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.505);
+    padding: 2vh 2vw;
+    font-size: 14pt;
+}
+.intro{
+    color: rgb(107, 0, 143);
+    font-size: 18pt;
+    font-family: candara;
+    text-align: center;
+    font-weight: bold;
+}
+.exp{
+    padding: 2%;
+    border-left: 4px solid red;
+    border-radius: 7px;
+    background-color: rgba(255, 90, 90, 0.396);
+    color: rgb(0, 0, 0);
+    margin-top: 2vh;
+    font-style: italic;
+    font-size: 10pt;
+    font-family: "Ubuntu Sans", sans-serif;
+}
+.pay_info{
+    border: 3px solid rgba(0, 0, 0, 0.337);
+    border-radius: 15px;
+    padding: 2vh 2vw;
+    margin-top: 2vh;
+    width: 70%;
+    margin: 2vh auto;
+}
+.inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.674);
+    border-radius: 10px;
+    margin: 0vh auto 6vh auto;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.171);
+}
+.inputs:hover{
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 255, 0.463);
+}
+.icons{
+    width: 30px;
+    height: 30px;
+}
+input{
+    width: 85%;
+    border: none;
+    background-color: transparent;
+    font-size: 14pt;
+    font-family: "Poppins", serif;
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+.alert{
+    margin: -3vh 0vw 3vh 0vw;
+    color: red;
+    font-size: 10pt;
+}
+.bill{
+    background-color: rgb(255, 102, 0);
+    color: rgb(107, 0, 143);
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    margin-top: 5vh;
+    border-radius: 10px;
+    font-size: 14pt;
+    cursor: pointer;
+    font-family: "Montserrat", serif;
+}
+.bill:hover{
+    background-color: rgb(107, 0, 143);
+    color: rgb(255, 102, 0);
+}
+@media(max-width: 1000px){
+    .form{
+        width: 80vw;
+    }
+    .pay_info{
+        width: 90%;
+    }
+    .inputs{
+        width: 90%;
+    }
+    input{
+        width: 82%;
+    }
+}

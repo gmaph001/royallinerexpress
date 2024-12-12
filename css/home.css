@@ -64,6 +64,10 @@ a{
     border: none;
     background-color: transparent;
 }
+.areas:focus{
+    border: none;
+    outline: none;
+}
 .date{
     width: 80%;
     border-radius: 5px;

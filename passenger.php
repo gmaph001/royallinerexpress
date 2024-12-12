@@ -91,6 +91,7 @@
 
     if($result2){
         echo "Bus info altered!";
+        header("location:pay_info.php?bill=$billkey");
     }
     else{
         echo "failed to alter the bus info!";
