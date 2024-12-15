@@ -46,7 +46,7 @@
                     Note: The information you input here will help us to contact you later on. Also, the phone number and 
                     the email you will input here will be the one to which all tickets purchased will be sent to!
                 </p>
-                <?php echo "<form action='verify.php?bill=$billkey' class='pay_form' name='billing' method='POST' enctype='multipart/form-data'>";?>
+                <?php echo "<form action='/azam/inc/submit.inc.php?bill=$billkey' class='pay_form' name='billing' method='POST' enctype='multipart/form-data'>";?>
                     <div class="pay_info">
                         <div class="inputs">
                             <img src="media/icons/user.png" class="icons">
