@@ -46,17 +46,26 @@
                     Note: The information you input here will help us to contact you later on. Also, the phone number and 
                     the email you will input here will be the one to which all tickets purchased will be sent to!
                 </p>
-                <?php echo "<form action='/azam/inc/submit.inc.php?bill=$billkey' class='pay_form' name='billing' method='POST' enctype='multipart/form-data'>";?>
+                <?php echo "<form action='verify.php?bill=$billkey' class='pay_form' name='billing' method='POST' enctype='multipart/form-data'>";?>
                     <div class="pay_info">
                         <div class="inputs">
                             <img src="media/icons/user.png" class="icons">
                             <input type="text" name="name" placeholder="Your Name">
                         </div>
                         <p class="alert" id="namealert"></p>
+                        <select class="method" name="method">
+                            <option value="none">Method of Payment</option>
+                            <option value="Mpesa">M-Pesa</option>
+                            <option value="Halopesa">HaloPesa</option>
+                            <option value="Airtel">AirtelMoney</option>
+                            <option value="Tigo">TigoPesa</option>
+                            <option value="Azampesa">Azampesa</option>
+                        </select>
                         <div class="inputs">
                             <img src="media/icons/phone.png" class="icons">
                             <input type="number" name="phone" placeholder="Phone Number">    
                         </div>
+                        <p class="malert" id="methodalert"></p>
                         <p class="alert" id="phonealert"></p>
                         <div class="inputs">
                             <img src="media/icons/mail.png" class="icons">

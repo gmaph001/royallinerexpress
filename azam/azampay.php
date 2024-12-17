@@ -59,42 +59,44 @@ class azampay
 	}
 
 	//MNO checkout
-	public static function mnocheckout($accountNumber, $amount,  $currency,$provider)
-	{         //UUID ID generator
-             $externalId = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex(random_bytes(16)), 4));
-		      $curl = curl_init();
-              curl_setopt_array($curl, array(
-                CURLOPT_URL => ''.azampay::envUrls()["checkout_url"].'/azampay/mno/checkout',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS =>'{
-                "accountNumber": "'.$accountNumber.'",
-                "additionalProperties": {
-                  "property1": 878346737777,
-                  "property2": 878346737777
-                },
-                "amount": "'.$amount.'",
-                "currency": "'.$currency.'",
-                "externalId": "'.$externalId.'",
-                "provider": "'.$provider.'"
-              }',
-                CURLOPT_HTTPHEADER => array(
-                  'Authorization: Bearer '.azampay::authtoken()->data->accessToken.'',
-                  'Content-Type: application/json'
-                ),
-              ));
+	public static function mnocheckout($accountNumber, $amount, $currency, $provider)
+    {
+        $externalId = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex(random_bytes(16)), 4));
+        $callbackUrl = "https://royallinerexpress.ct.ws/azam/callback_url.php"; 
 
-              $response = curl_exec($curl);
-              $result = json_decode($response);
-              curl_close($curl);
-              
-              //Return checkout link or json data
-               return array($result, $externalId);
-        }
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => ''.azampay::envUrls()["checkout_url"].'/azampay/mno/checkout',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => json_encode([
+                "accountNumber" => $accountNumber,
+                "additionalProperties" => [
+                    "callbackUrl" => $callbackUrl
+                ],
+                "amount" => $amount,
+                "currency" => $currency,
+                "externalId" => $externalId,
+                "provider" => $provider
+            ]),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . azampay::authtoken()->data->accessToken,
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $result = json_decode($response);
+        curl_close($curl);
+
+        // Return checkout response and external ID
+        return array($result, $externalId);
+    }
+
 	}
 

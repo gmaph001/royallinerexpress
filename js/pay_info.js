@@ -30,4 +30,12 @@ let alertmsg = "*Please fill in this field!*";
         else{
             document.getElementById("emailalert").style.display = "none";
         }
+
+        if(document.billing.method.value === "none"){
+            document.getElementById("methodalert").innerHTML = alertmsg;
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("methodalert").style.display = "none";
+        }
     }
