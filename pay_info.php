@@ -24,9 +24,9 @@
         </div>
         <div class="horizontal_menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
         <img src="media/icons/menu.png" class="menu_icon">
@@ -34,9 +34,9 @@
     <div class="body">
         <div class="vertical_menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
         <div class="pay">
@@ -81,13 +81,13 @@
     <div class="footer">
         <div class="footer_content">
             <div class="footer_logo">
-                <a href="index.html"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
+                <a href="index.php"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
             </div>
             <div class="quick">
                 <h1>Go to</h1>
-                <a href="index.html">Homepage</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="login.html">Login</a>
+                <a href="index.php">Homepage</a>
+                <a href="gallery.php">Gallery</a>
+                <a href="login.php">Login</a>
             </div>
             <div class="contact">
                 <h1>Contact Us</h1>

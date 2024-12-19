@@ -1,26 +1,54 @@
 <?php
     include '../connection.php'; // Include your database connection file
 
-    // Read callback data from Azampay
-    $callbackData = file_get_contents("php://input");
-    $callbackData = json_decode($callbackData, true);
+    
+    $rawData = file_get_contents('php://input');
 
-    if (!$callbackData) {
-        http_response_code(400);
-        echo "Invalid callback data.";
+    
+    $headers = getallheaders();
+    file_put_contents('debug.log', "Headers:\n" . print_r($headers, true));
+
+    
+    if (isset($headers['Content-Type']) && $headers['Content-Type'] !== 'application/json') {
+        echo "Invalid Content-Type header.";
         exit;
     }
 
-    // Extract required information
+    
+    file_put_contents('debug.log', "Raw Body:\n" . $rawData . "\n", FILE_APPEND);
+
+    
+    if (empty($rawData)) {
+        echo "Empty request body.";
+        exit;
+    }
+
+    
+    $callbackData = json_decode($rawData, true);
+
+    
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo "JSON decoding error: " . json_last_error_msg();
+        exit;
+    }
+
+    
     $externalId = $callbackData['externalId'] ?? null;
     $status = $callbackData['status'] ?? null;
+    $amount = $callbackData['amount'] ?? null; // Optional, depending on your needs
 
-    // Validate the payment status
+    
+    if ($externalId === null || $status === null) {
+        echo "Missing necessary data.";
+        exit;
+    }
+
+    
     if ($status === "SUCCESS") {
-        // Update the database with payment success
+        
         $stmt = $conn->prepare("UPDATE passenger_info SET pay_status = ? WHERE bill_Id = ?");
         $pay_status = "Success";
-        $stmt->bind_param("ss", $pay_status);
+        $stmt->bind_param("ss", $pay_status, $externalId); 
 
         if ($stmt->execute()) {
             echo "Payment successfully updated for Transaction ID: $externalId.";
@@ -29,7 +57,7 @@
         }
         $stmt->close();
     } else {
-        // Handle failure or other status
+        
         echo "Payment not successful. Status: $status";
     }
 

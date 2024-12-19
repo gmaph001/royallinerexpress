@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2024 at 06:25 PM
+-- Generation Time: Dec 19, 2024 at 02:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,9 +50,12 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `billing` (
   `bill_ID` int(11) NOT NULL,
-  `bill` int(30) NOT NULL,
-  `phone` int(10) NOT NULL,
-  `date` date NOT NULL,
+  `bill_name` varchar(200) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(300) NOT NULL,
+  `bill` int(10) NOT NULL,
+  `bill_time` time NOT NULL,
+  `bill_date` date NOT NULL,
   `bill_key` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,31 +69,33 @@ CREATE TABLE `bus_info` (
   `bus_ID` int(11) NOT NULL,
   `bus_no` varchar(30) NOT NULL,
   `seats` int(2) NOT NULL,
-  `class` varchar(10) NOT NULL,
+  `class` varchar(20) NOT NULL,
   `fare` int(10) NOT NULL,
   `azam` varchar(20) DEFAULT NULL,
   `tv` varchar(20) DEFAULT NULL,
   `refreshments` varchar(20) DEFAULT NULL,
   `charging` varchar(50) DEFAULT NULL,
-  `wifi` int(20) DEFAULT NULL,
+  `wifi` varchar(20) DEFAULT NULL,
   `toilet` varchar(20) DEFAULT NULL,
   `route_ID` int(10) NOT NULL,
   `filled` int(3) NOT NULL,
-  `confirmation` varchar(20) NOT NULL,
-  `area_confirm` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `confirmation` varchar(20) DEFAULT NULL,
+  `position` varchar(50) NOT NULL,
+  `op_date` date NOT NULL,
+  `status` varchar(15) NOT NULL DEFAULT 'available'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bus_info`
 --
 
-INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `azam`, `tv`, `refreshments`, `charging`, `wifi`, `toilet`, `route_ID`, `filled`, `confirmation`, `area_confirm`, `date`) VALUES
-(2, 'T387DJN', 51, 'Luxury', 35000, NULL, NULL, NULL, 'available', NULL, NULL, 2, 7, '', '', '0000-00-00'),
-(3, 'T387DXV', 51, 'Semi-Luxur', 40000, 'available', NULL, NULL, 'available', NULL, NULL, 2, 0, '', '', '0000-00-00'),
-(4, 'T387DXK', 51, 'Semi-Luxur', 40000, 'available', NULL, NULL, 'available', NULL, NULL, 2, 0, '', '', '0000-00-00'),
-(5, 'T387DZE', 51, 'Semi-Luxur', 40000, 'available', NULL, NULL, 'available', NULL, NULL, 2, 0, '', '', '0000-00-00'),
-(6, 'T345DBZ', 57, 'Luxury', 45000, 'available', NULL, NULL, NULL, 0, NULL, 2, 0, '', '', '0000-00-00');
+INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `azam`, `tv`, `refreshments`, `charging`, `wifi`, `toilet`, `route_ID`, `filled`, `confirmation`, `position`, `op_date`, `status`) VALUES
+(2, 'T567EBA', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
+(3, 'T678EDS', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
+(4, 'T765EJM', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
+(5, 'T765ELJ', 57, 'VIP', 40000, 'available', 'available', 'available', 'available', NULL, 'available', 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
+(6, 'T896ELY', 57, 'VIP A', 40000, 'available', 'available', 'available', 'available', 'available', 'available', 3, 0, NULL, 'TANGA', '2024-12-19', 'available'),
+(7, 'T456DZK', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available');
 
 -- --------------------------------------------------------
 
@@ -168,7 +173,29 @@ CREATE TABLE `routes` (
 --
 
 INSERT INTO `routes` (`route_ID`, `departure`, `destination`, `eta`) VALUES
-(2, 'DAR ES SALAAM', 'TANGA', 0);
+(2, 'DAR ES SALAAM', 'TANGA', 0),
+(3, 'TANGA', 'DAR ES SALAAM', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `currency` varchar(255) NOT NULL,
+  `merchant_ref` varchar(255) NOT NULL,
+  `reference` varchar(255) DEFAULT NULL,
+  `provider` varchar(255) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(255) NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
@@ -217,6 +244,12 @@ ALTER TABLE `routes`
   ADD PRIMARY KEY (`route_ID`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -236,7 +269,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `bus_info`
 --
 ALTER TABLE `bus_info`
-  MODIFY `bus_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `bus_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `driver_info`
@@ -260,7 +293,13 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT for table `routes`
 --
 ALTER TABLE `routes`
-  MODIFY `route_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `route_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

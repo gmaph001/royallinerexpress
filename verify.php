@@ -36,13 +36,13 @@
     }
 
     // Initiate payment
-    list($response, $externalId) = azampay::mnocheckout($mobile_number, $amount, $currency, $payment_method);
+    list($response, $externalId) = azampay::mnocheckout($accountNumber, $amount, $currency, $provider);
 
     // Check if the payment initiation was successful
     if (isset($response->success) && $response->success) {
         echo "Payment initiated successfully. Please wait for confirmation...";
         // Redirect to callback handler
-        header("Location: callback_url.php?externalId=$externalId&name=$name&email=$email&&bill=$billkey");
+        header("Location:azam/callback_url.php?externalId=$externalId&name=$name&email=$email&&bill=$billkey");
     } else {
         echo "Payment initiation failed. Please try again.";
     }

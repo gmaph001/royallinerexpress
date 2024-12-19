@@ -15,10 +15,17 @@
         $class = $_POST['class'];
         $fare = $_POST['fare'];
 
-        for($i=1; $i<6; $i++){
+        $local = date_default_timezone_set('Africa/Nairobi');
+
+        if($local){
+            $day = date('d')+1;
+
+            $date = date('Y-m-'.$day);
+        }
+
+        for($i=1; $i<7; $i++){
             if($_POST['fresh'.$i] == NULL){
-                continue;
-                
+                continue;     
             }
             else{
                 $refresh[$size] = $_POST['fresh'.$i];
@@ -30,6 +37,7 @@
         $to = $_POST['to'];
         $confirm = false;
         $buses = false;
+        $buses2 = false;
         $route_ID;
 
         if($result0){
@@ -45,7 +53,8 @@
                 }
             }
             else{
-                $query = "INSERT INTO bus_info(bus_no, seats, class, fare) VALUES('$bus_no', '$seats', '$class', '$fare')";
+                $buses2 = true;
+                $query = "INSERT INTO bus_info(bus_no, seats, class, fare, position, op_date) VALUES('$bus_no', '$seats', '$class', '$fare', '$from', '$date')";
                 $result = mysqli_query($db, $query);
 
                 for($i=0; $i<$size; $i++){
@@ -107,8 +116,8 @@
         if($buses){
             echo "The bus is already registered!";
         }
-        else{
-            $query = "INSERT INTO bus_info(bus_no, seats, class, fare) VALUES('$bus_no', '$seats', '$class', '$fare')";
+        elseif(!$buses2){
+            $query = "INSERT INTO bus_info(bus_no, seats, class, fare, position, op_date) VALUES('$bus_no', '$seats', '$class', '$fare', '$from', '$date')";
             $result = mysqli_query($db, $query);
 
             for($i=0; $i<$size; $i++){

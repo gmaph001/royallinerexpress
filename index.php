@@ -2,7 +2,9 @@
     require "connection.php";
 
     $areas = [];
+    $areas2 = [];
     $size = 0;
+    $size2 = 0;
 
     $query = "SELECT * FROM routes";
     $result = mysqli_query($db, $query);
@@ -13,10 +15,12 @@
 
             $areas[$size] = $row['departure'];
             $size++;
-            $areas[$size] = $row['destination'];
-            $size++;
+            $areas2[$size2] = $row['destination'];
+            $size2++;
         }
     }
+
+    
 
 
 ?>
@@ -39,9 +43,9 @@
         </div>
         <div class="horizontal_menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
         <img src="media/icons/menu.png" class="menu_icon">
@@ -49,9 +53,9 @@
     <div class="body">
         <div class="vertical_menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
         <div class="intro" onscroll="vuta()">
@@ -79,10 +83,10 @@
                             <select name="destination" class="areas">
                                 <option value="none">Select destination</option>
                                 <?php 
-                                    for($i=0; $i<$size; $i++){
+                                    for($i=0; $i<$size2; $i++){
                                         echo 
                                             "
-                                                <option value='$areas[$i]'>$areas[$i]</option>
+                                                <option value='$areas2[$i]'>$areas2[$i]</option>
                                             ";
                                     }
                                 ?>
@@ -120,9 +124,9 @@
             </div>
             <div class="quick">
                 <h1>Go to</h1>
-                <a href="index.html">Homepage</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="login.html">Login</a>
+                <a href="index.php">Homepage</a>
+                <a href="gallery.php">Gallery</a>
+                <a href="login.php">Login</a>
             </div>
             <div class="contact">
                 <h1>Contact Us</h1>
