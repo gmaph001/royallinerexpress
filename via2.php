@@ -28,6 +28,7 @@
                 $firstname = $row['firstname'];
                 $secondname = $row['secondname'];
                 $lastname = $row['lastname'];
+                $rank = $row['rank'];
 
                 $queryconfirm = "UPDATE admin SET confirmkey = '$confirmkey' WHERE userkey = '$id'";
                 $resultconf = mysqli_query($db, $queryconfirm);
@@ -84,8 +85,9 @@
                     $mail->isHTML(true);
                     $mail->Subject = 'Key Confirmation.';
                     $mail->Body    = "
-                        <h1>the key for {$firstname} {$secondname} {$lastname} is: </h1>
+                        <h1>The key for {$firstname} {$secondname} {$lastname}, who wants to be {$rank} is: </h1>
                         <h2>{$confirmkey}</h2>
+                        <p>Please if you consent, send him/her this key for confirmation of the account.</p>
                     ";
                 
                     if ($mail->send()) {
