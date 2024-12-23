@@ -1,0 +1,186 @@
+<?php
+    $id = $_GET['id'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/navBar.css">
+    <link rel="stylesheet" type="text/css" href="css/pay.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | Reset Password</title>
+</head>
+<body>
+    <div class="navigation">
+        <a href="index.php"><img src="media/icons/logo.png" class="logo"></a>
+        <div class="title">
+            <p>ROYAL LINER EXPRESS</p>
+        </div>
+        <div class="horizontal_menu">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </div>
+        <img src="media/icons/menu.png" class="menu_icon">
+    </div>
+    <div class="body">
+        <div class="vertical_menu">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </div>
+        <div class="pay">
+            <div class="form">
+                <p class="intro">Reset Password</p>
+                <p class="exp">
+                    Note: Modify your password here! Please, enter anything that is good and memorable for you!
+                </p>
+                <?php echo "<form action='password.php?id=$id' class='pay_form' name='resetpass' method='POST' enctype='multipart/form-data'>";?>
+                    <div class="pay_info">
+                        <div class="inputs" id="nbox">
+                            <img src="media/icons/lock.png" class="icons">
+                            <input type="password" name="newpass" placeholder="New Password" id="npass">
+                            <img src="media/icons/hide.png" class="icons hide1">
+                        </div>
+                        <p class="alert" id="npassalert"></p>
+                        <div class="inputs" id="cbox">
+                            <img src="media/icons/lock.png" class="icons">
+                            <input type="password" name="confirmpass" placeholder="Confirm Password" id="cpass">
+                            <img src="media/icons/hide.png" class="icons hide2">
+                        </div>
+                        <p class="alert" id="cpassalert"></p>
+                    </div>
+                    <button class="bill" name="reset" onclick="verify()">Reset Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_content">
+            <div class="footer_logo">
+                <a href="index.php"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
+            </div>
+            <div class="quick">
+                <h1>Go to</h1>
+                <a href="index.php">Homepage</a>
+                <a href="gallery.php">Gallery</a>
+                <a href="login.php">Login</a>
+            </div>
+            <div class="contact">
+                <h1>Contact Us</h1>
+                <div class="contact_icons">
+                    <a href="https://instagram.com/royallinerexpress">
+                        <img src="media/icons/instagram.png" class="social_icons">
+                    </a>
+                    <a href="https://facebook.com/royallinerexpress">
+                        <img src="media/icons/facebook.jpg" class="social_icons">
+                    </a>
+                    <a href="https://x.com/royallinerexpress">
+                        <img src="media/icons/x.jpg" class="social_icons">
+                    </a>
+                    <a href="https://tiktok.com/royallinerexpress">
+                        <img src="media/icons/tiktok.png" class="social_icons">
+                    </a>
+                </div>
+                <p>@royallinerexpress</p>
+            </div>
+            <div class="comments">
+                <h1>Comment</h1>
+                <form>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <textarea placeholder="Write your comments here..."></textarea>
+                    <button class="comment_send">Send</button>
+                </form>
+            </div>
+        </div>
+        <p>&copy; Royal Liner Express 2024.</p>
+    </div> 
+</body>
+<script src="js/navBar.js"></script>
+<script>
+    let alertmsg = "*Please, fill this field!*";
+    let passalert = "*Your password must have at least 9 characters!*";
+    let alertpass = "*Confirmed password must match new password!*";
+
+    let showbtn = document.querySelector('.hide1');
+    let showbtn2 = document.querySelector('.hide2');
+
+    let gusa = 0;
+    let gusa2 = 0;
+
+    function isEven(n){
+        if(n%2 == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    showbtn.addEventListener('click', function(){
+        gusa++;
+
+        if(isEven(gusa)){
+            showbtn.src = "media/icons/hide.png";
+            document.getElementById("npass").setAttribute('type', 'password');
+        }
+        else{
+            showbtn.src = "media/icons/show.png";
+            document.getElementById("npass").setAttribute('type', 'text');
+        }
+    })
+
+    showbtn2.addEventListener('click', function(){
+        gusa2++;
+
+        if(isEven(gusa2)){
+            showbtn2.src = "media/icons/hide.png";
+            document.getElementById("cpass").setAttribute('type', 'password');
+        }
+        else{
+            showbtn2.src = "media/icons/show.png";
+            document.getElementById("cpass").setAttribute('type', 'text');
+        }
+    })
+
+    function verify(){
+        if(document.resetpass.newpass.value === ""){
+            document.getElementById("npassalert").innerHTML = alertmsg;
+            document.getElementById("nbox").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(document.resetpass.newpass.value.length < 9){
+            document.getElementById("npassalert").innerHTML = passalert;
+            document.getElementById("nbox").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("npassalert").innerHTML = "";
+            document.getElementById("nbox").style.border = "none";
+        }
+
+        if(document.resetpass.confirmpass.value === ""){
+            document.getElementById("cpassalert").innerHTML = alertmsg;
+            document.getElementById("cbox").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(document.resetpass.confirmpass.value !== document.resetpass.newpass.value){
+            document.getElementById("cpassalert").innerHTML = alertpass;
+            document.getElementById("cbox").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("cpassalert").innerHTML = "";
+            document.getElementById("cbox").style.border = "none";
+        }
+    }
+
+</script>
+</html>

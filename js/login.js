@@ -1,4 +1,4 @@
-let signup = document.querySelector('.card2');
+    let signup = document.querySelector('.card2');
     let signupbtn = document.querySelector('.signup-initiate');
     let login = document.querySelector('.card1');
     let login2 = document.querySelector('.login');
@@ -77,5 +77,84 @@ let signup = document.querySelector('.card2');
     })
 
     forget.addEventListener('click', function(){
-        window.location.href = "forget.php";
+        window.location.href = "forget.html";
     })
+
+    let alertmsg = "*Please fill in this field!*";
+    let passalert = "*Your password must be 9 characters long!*";
+    let passalert2 = "*Password confirmed is not equal to password entered!*";
+
+    function ingia(){
+        if(document.getElementById("user_name").value === ""){
+            document.getElementById("useralert").innerHTML = alertmsg;
+            document.getElementById("user").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("user").style.border = "none";
+            document.getElementById("useralert").innerHTML = "";
+        }
+
+        if(document.getElementById("pwd").value === ""){
+            document.getElementById("passalert").innerHTML = alertmsg;
+            document.getElementById("pass").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("pass").style.border = "none";
+            document.getElementById("passalert").innerHTML = "";
+        }
+
+    }
+
+    function unda(){
+        if(document.getElementById("username1").value === ""){
+            document.getElementById("useralert2").innerHTML = alertmsg;
+            document.getElementById("user2").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("user2").style.border = "none";
+            document.getElementById("useralert2").innerHTML = "";
+        }
+
+        if(document.signup.email.value === ""){
+            document.getElementById("emailalert").innerHTML = alertmsg;
+            document.getElementById("email").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("emailalert").innerHTML = "";
+            document.getElementById("email").style.border = "none";
+        }
+
+        if(document.getElementById("pwd1").value === ""){
+            document.getElementById("passalert2").innerHTML = alertmsg;
+            document.getElementById("pass2").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(document.getElementById("pwd1").value.length < 9){
+            document.getElementById("passalert2").innerHTML = passalert;
+            document.getElementById("pass2").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("pass2").style.border = "none";
+            document.getElementById("passalert2").innerHTML = "";
+        }
+
+        if(document.getElementById("pwd2").value === ""){
+            document.getElementById("passalert3").innerHTML = alertmsg;
+            document.getElementById("pass3").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(document.getElementById("pwd1").value !== document.getElementById("pwd2").value){
+            document.getElementById("passalert3").innerHTML = passalert2;
+            document.getElementById("pass3").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("pass3").style.border = "none";
+            document.getElementById("passalert3").innerHTML = "";
+        }
+    }

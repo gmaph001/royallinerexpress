@@ -103,6 +103,12 @@ input:focus{
     cursor: pointer;
     animation: onesha3 2s ease-in-out normal;
 }
+.alert{
+    font-size: 10pt;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: -3vh;
+}
 .signup-initiate:hover{
     color: rgb(255, 102, 0);
 }
@@ -116,6 +122,25 @@ input:focus{
 }
 .forget:hover{
     color: rgb(255, 102, 0);
+}
+.remember{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 5vh;
+}
+.remember_me{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.remember p{
+    color: white;
+    font-size: 14pt;
+    width: 90%;
+    font-family: Candara;
 }
 .login-button{
     background-color: rgb(255, 102, 0);

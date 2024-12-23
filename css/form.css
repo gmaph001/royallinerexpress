@@ -75,10 +75,26 @@ input:focus{
     outline: none;
     border: none;
 }
+input::placeholder{
+    color: black;
+}
+select{
+    border: none;
+    outline: none;
+    width: 85%;
+    font-size: 14pt;
+    background-color: transparent;
+    cursor: pointer;
+}
+select:focus{
+    outline: none;
+    border: none;
+}
 .center{
     background-color: black;
     width: 5px;
     min-height: 50vh;
+    height: 100%;
 }
 .left h1{
     font-size: 16pt;
