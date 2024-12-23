@@ -43,7 +43,8 @@
             <div class="form">
                 <p class="intro">Confirm Key</p>
                 <p class="exp">
-                    Note: We have sent an OTP to your email, please enter it here!
+                    Note: We have sent an OTP to your email, please enter it here! If you don't see it in your inbox, 
+                    please check it in your spam emails!
                 </p>
                 <?php echo "<form action='letin2.php?id=$id' class='pay_form' name='billing' method='POST' enctype='multipart/form-data'>";?>
                     <div class="pay_info">
