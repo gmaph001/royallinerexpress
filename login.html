@@ -15,12 +15,12 @@
                 <form class="login-form" action="admin.php" enctype="multipart/form-data" method="POST">
                     <div class="inputs" id="user">
                         <img src="media/icons/user.png" class="icons">
-                        <input type="text" name="username" placeholder="Username" id="user_name">
+                        <input type="text" name="username" placeholder="Username" id="user_name" onkeyup="donot()">
                     </div>
                     <p class="alert" id="useralert"></p><br>
                     <div class="inputs" id="pass">
                         <img src="media/icons/lock.png" class="icons">
-                        <input type="password" name="pword" placeholder="Password" id="pwd" class="pass">
+                        <input type="password" name="pword" placeholder="Password" id="pwd" class="pass" onkeyup="donot2()">
                         <img src="media/icons/hide.png" class="icons show show1">
                     </div>
                     <p class="alert" id="passalert"></p><br>

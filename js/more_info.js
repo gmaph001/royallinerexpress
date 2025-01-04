@@ -1,4 +1,4 @@
-let alertmsg = "*Please fill this field!*";
+    let alertmsg = "*Please fill this field!*";
     let phonealert = "*Please input correct phone number!*";
     let confirmalert = "*Please input correct confirmation key!*";
     

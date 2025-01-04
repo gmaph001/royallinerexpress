@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2024 at 02:15 PM
+-- Generation Time: Jan 04, 2025 at 05:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,12 +52,12 @@ CREATE TABLE `bus_info` (
 --
 
 INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `azam`, `tv`, `refreshments`, `charging`, `wifi`, `toilet`, `route_ID`, `filled`, `confirmation`, `position`, `op_date`, `status`) VALUES
-(2, 'T567EBA', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
-(3, 'T678EDS', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
-(4, 'T765EJM', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
-(5, 'T765ELJ', 57, 'VIP', 40000, 'available', 'available', 'available', 'available', NULL, 'available', 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available'),
-(6, 'T896ELY', 57, 'VIP A', 40000, 'available', 'available', 'available', 'available', 'available', 'available', 3, 0, NULL, 'TANGA', '2024-12-19', 'available'),
-(7, 'T456DZK', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'DAR ES SALAAM', '2024-12-19', 'available');
+(2, 'T567EBA', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 3, 1, NULL, 'TANGA', '2025-01-04', 'available'),
+(3, 'T678EDS', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 3, 0, NULL, 'TANGA', '2025-01-04', 'available'),
+(4, 'T765EJM', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 3, 0, NULL, 'TANGA', '2025-01-04', 'available'),
+(5, 'T765ELJ', 57, 'VIP', 40000, 'available', 'available', 'available', 'available', NULL, 'available', 2, 3, NULL, 'DAR ES SALAAM', '2025-01-04', 'available'),
+(6, 'T896ELY', 57, 'VIP A', 40000, 'available', 'available', 'available', 'available', 'available', 'available', 2, 0, NULL, 'DAR ES SALAAM', '2025-01-04', 'available'),
+(7, 'T456DZK', 51, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 3, 0, NULL, 'TANGA', '2025-01-03', 'available');
 
 --
 -- Indexes for dumped tables

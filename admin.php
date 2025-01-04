@@ -24,7 +24,7 @@
     $query = "SELECT * FROM admin";
     $result = mysqli_query($db, $query);
 
-    if($result){
+    if(mysqli_num_rows($result)>0){
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
 
@@ -49,6 +49,9 @@
                 $message = "Incorrect Username! Please, <br><br> <a href='login.php'><i>try again</i></a> <br>";
             }
         }
+    }
+    else{
+        $message = "There is no any registered account yet! Please, register to start. <br><br> <a href='login.php'>Register</a><br>";
     }
 ?>
 <!DOCTYPE html>

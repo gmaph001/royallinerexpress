@@ -81,12 +81,59 @@
     })
 
     let alertmsg = "*Please fill in this field!*";
+    let passmsg = "*Characters like ' = ; : and quotes are not allowed!*";
     let passalert = "*Your password must be 9 characters long!*";
     let passalert2 = "*Password confirmed is not equal to password entered!*";
+
+    
+
+    // let size = sizeof(val2)/sizeof(val2[0]);
+
+    // console.log(size);
+
+
+    function donot(){
+        let val = document.getElementById("user_name").value;
+
+        let val2 = val.split("");
+
+        let size = val2.length;
+
+        for(let i=0; i<size; i++){
+            if(val2[i] === ";" || val2[i] === '"' || val2[i] === ":" || val2[i] === "=" || val2[i] === "'"){
+                document.getElementById("useralert").innerHTML = passmsg;
+                document.getElementById("user").style.border = "3px solid red";
+
+                return true;
+            }
+        }
+    }
+
+    function donot2(){
+        let val = document.getElementById("pwd").value;
+
+        let val2 = val.split("");
+
+        let size = val2.length;
+
+        for(let i=0; i<size; i++){
+            if(val2[i] === ";" || val2[i] === '"' || val2[i] === ":" || val2[i] === "=" || val2[i] === "'"){
+                document.getElementById("passalert").innerHTML = passmsg;
+                document.getElementById("pass").style.border = "3px solid red";
+
+                return true;
+            }
+        }
+    }
 
     function ingia(){
         if(document.getElementById("user_name").value === ""){
             document.getElementById("useralert").innerHTML = alertmsg;
+            document.getElementById("user").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(donot()){
+            document.getElementById("useralert").innerHTML = passmsg;
             document.getElementById("user").style.border = "3px solid red";
             event.preventDefault();
         }
@@ -97,6 +144,11 @@
 
         if(document.getElementById("pwd").value === ""){
             document.getElementById("passalert").innerHTML = alertmsg;
+            document.getElementById("pass").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else if(donot2()){
+            document.getElementById("passalert").innerHTML = passmsg;
             document.getElementById("pass").style.border = "3px solid red";
             event.preventDefault();
         }

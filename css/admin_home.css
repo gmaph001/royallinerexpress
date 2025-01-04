@@ -1,0 +1,230 @@
+.account{
+    border-radius: 50%;
+}
+.setting{
+    width: 20px;
+    height: 20px;
+    margin-left: -15px;
+}
+.menu{
+    cursor: pointer;
+}
+.content{
+    background-color: aliceblue;
+}
+.performance{
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid rgb(107, 0, 143);
+}
+.performance-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
+.sold{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgba(190, 190, 190, 0.674);
+    padding: 2vh 2vw;
+    border-bottom: 5px solid green;
+}
+.given{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgba(190, 190, 190, 0.674);
+    padding: 2vh 2vw;
+    border-bottom: 5px solid rgb(255, 102, 0);
+}
+.percentage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgba(190, 190, 190, 0.674);
+    padding: 2vh 2vw;
+    border-bottom: 5px solid rgb(107, 0, 143);
+}
+.outof{
+    background-color: transparent;
+    padding: 1vh 1vw;
+    border-radius: 10px;
+}
+.outof p{
+    font-size: 10pt;
+    font-weight: bold;
+    font-style: italic;
+}
+.big{
+    font-size: 28pt;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.center{
+    min-height: 50vh;
+    background-color: rgb(107, 0, 143);
+    width: 5px;
+}
+.performance-curve{
+    width: 50%;
+    background-color: rgba(0, 145, 255, 0.525);
+    border-radius: 10px;
+    padding: 2%;
+}
+.curve-head{
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+.bar-graph{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.graph{
+    width: 90%;
+    height: 30vh;
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+}
+.bar{
+    background-color: rgb(255, 102, 0);
+    color: transparent;
+}
+.time{
+    margin-left: 5px;
+}
+.quick{
+    background-color: rgb(126, 195, 255);
+    padding: 2vh 2vw;
+}
+.quick h1{
+    text-align: center;
+    color: rgb(72, 0, 96);
+    margin-bottom: 2vh;
+}
+.quick-access{
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.access{
+    background-color: rgba(255, 255, 255, 0.674);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    width: 20vw;
+    padding-bottom: 2vh;
+}
+.access:hover{
+    background-color: rgb(255, 102, 0);
+}
+.access-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(107, 0, 143);
+    border-radius: 7px;
+    width: 100%;
+}
+.access-head{
+    font-size: 16pt;
+    font-weight: bold;
+    color: rgb(255, 102, 0);
+    width: 100%;
+    padding: 1vh 7vw;
+    text-align: center;
+}
+.exp{
+    background-color: white;
+    padding: 1vh 2vw;
+    border-radius: 0px 0px 7px 7px;
+    width: 65%;
+}
+.access-icon{
+    width: 40px;
+    height: 40px;
+}
+.access-name{
+    font-size: 16pt;
+    font-weight: bold;
+    color: rgb(107, 0, 143);
+}
+.footer{
+    background-color: rgb(107, 0, 143);
+    color: white;
+    padding: 2vh 2vw;
+}
+.footer p{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16pt;
+}
+@media(max-width: 1100px){
+    .performance{
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 5px solid rgb(107, 0, 143);
+    }
+    .center{
+        width: 100%;
+        height: 5px;
+        min-height: 5px;
+        margin-bottom: 5vh;
+    }
+    .performance-data{
+        width: 80vw;
+    }
+    .sold{
+        padding: 2vh 5vw;
+        margin-bottom: 5vh;
+    }
+    .given{
+        padding: 2vh 5vw;
+        margin-bottom: 5vh; 
+    }
+    .percentage{
+        padding: 2vh 5vw;
+        margin-bottom: 5vh;
+    }
+    .big{
+        font-size: 16pt;
+    }
+    .performance-curve{
+        width: 80vw;
+        padding: 5%;
+    }
+    .quick-access{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .access{
+        width: 80vw;
+        margin-bottom: 2vh;
+    }
+    .footer p{
+        font-size: 12pt;
+    }
+}

@@ -12,6 +12,12 @@
     $n3 = 3;
     $n4 = 4;
 
+    $day = "";
+    $day2 = "";
+
+    $op_day = "";
+    $op_day2 = "";
+
     $confirm = 0;
     $confirm2 = 0;
 
@@ -29,6 +35,21 @@
             $row = mysqli_fetch_array($result);
 
             if($row['bus_no'] === $bus_no){
+                $op_day = str_split($row['op_date']);
+
+                for($j=0; $j<10; $j++){
+                    if($op_day[$j] === "-"){
+                        continue;
+                    }
+                    else{
+                        $op_day2 .= $op_day[$j];
+                    }
+                }
+
+                $op_day2 = intval($op_day2);
+
+                $filled = $row['filled'];
+
                 for($j=0; $j<$row['seats']; $j++){
                     $seats++;
                 }
@@ -40,9 +61,26 @@
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
 
-            if($bus_no === $row['bus_no']){
-                $namba[$idadi] = $row['seat_no'];
-                $idadi++;
+            if($bus_no === $row['bus_no']){   
+                $date2 = str_split($row['tarehe']);
+
+                for($j=0; $j<10; $j++){
+                    if($date2[$j] === "-"){
+                        continue;
+                    }
+                    else{
+                        $day .= $date2[$j];
+                    }
+                }
+
+                $day = intval($day);  
+                
+                if($filled > 0 && $day >= $op_day2){
+                    $namba[$idadi] = $row['seat_no'];
+                    $idadi++;
+                }
+
+                $day = "";
             }
         }
     }

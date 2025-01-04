@@ -64,7 +64,7 @@
 
             $day2 = intval($day2);
 
-            if($route_ID === $row['route_ID'] && $departure === $row['position'] && $day>=$day2){
+            if($route_ID === $row['route_ID'] && $departure === $row['position'] && $day>=$day2 && $row['status'] === "available"){
                 $bus_no[$size] = $row['bus_no'];
                 $fare[$size] = $row['fare'];
                 $class[$size] = $row['class'];

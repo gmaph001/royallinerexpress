@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/admin_navBar.css">
+    <link rel="stylesheet" type="text/css" href="css/driver.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | Administrator | Tickets</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar-all">
+            <div class="main-cluster">
+                <iframe src="sidebar.html" class="sidebar"></iframe>
+                <img src="media/icons/close.png" class="icons head">
+            </div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <img src="media/icons/menu.png" class="icons menu">
+                <h1>ROYAL LINER EXPRESS</h1>
+                <img src="media/icons/logo.png" class="logo">
+                <div class="horizontal_menu">
+                    <a href="notifications.html" class="notification" onmouseover="notifyfunc(1)" onmouseleave="notifyfunc(2)"><img src="media/icons/bell.png" class="icons notify"><p>1</p></a>
+                    <a href="account.html"><img src="media/images/profiles/IMG_20180819_121655.jpg" class="icons account"></a>
+                    <a href="login.html"><img src="media/icons/logout.png" class="icons"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="driver">
+                    <div class="card">
+                        <form class="card-form">
+                            <div class="inputs" id="uname1">
+                                <img src="media/icons/account.png" class="icons">
+                                <input type="text" name="username" id="uname" placeholder="Username">
+                            </div>
+                            <p class="alert" id="useralert"></p>
+                            <div class="inputs" id="leave1">
+                                <img src="media/icons/departures.png" class="icons">
+                                <select name="depart" id="leave">
+                                    <option value="none">Departure</option>
+                                    <option value="DAR ES SALAAM">DAR ES SALAAM</option>
+                                    <option value="TANGA">TANGA</option>
+                                </select>
+                            </div>
+                            <p class="alert" id="leavealert"></p>
+                            <div class="inputs" id="arrive1">
+                                <img src="media/icons/arrivals.png" class="icons">
+                                <select name="arrival" id="arrive">
+                                    <option value="none">Arrival</option>
+                                    <option value="DAR ES SALAAM">DAR ES SALAAM</option>
+                                    <option value="TANGA">TANGA</option>
+                                </select>
+                            </div>
+                            <p class="alert" id="arrivealert"></p>
+                            <div class="inputs" id="bus1">
+                                <img src="media/icons/arrivals.png" class="icons">
+                                <select name="bus_no" id="bus">
+                                    <option value="none">Bus No</option>
+                                    <option value="T840ABC">T840ABC</option>
+                                    <option value="T840ABC">T840ABC</option>
+                                    <option value="T840ABC">T840ABC</option>
+                                    <option value="T840ABC">T840ABC</option>
+                                    <option value="T840ABC">T840ABC</option>
+                                </select>
+                            </div>
+                            <p class="alert" id="busalert"></p>
+                            <button class="signoff" onclick="kagua()" name="signoff">Sign Off</button>
+                        </form>
+                    </div>
+                </div>
+                <a href="see_driver.html" class="see"><img src="media/icons/steering-wheel.png" class="icons"></a>
+                <a href="add_driver.html" class="plus">+</a>
+            </div>
+            <div class="footer">
+                <p>&COPY; ROYAL LINER EXPRESS 2025</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/admin_navBar.js"></script>
+<script>
+    let alertmsg = "*Please fill this field!*";
+
+
+    function kagua(){
+        if(document.getElementById("uname").value === ""){
+            document.getElementById("useralert").innerHTML = alertmsg;
+            document.getElementById("uname1").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("useralert").innerHTML = "";
+            document.getElementById("uname1").style.border = "none";
+        }
+
+        if(document.getElementById("leave").value === "none"){
+            document.getElementById("leavealert").innerHTML = alertmsg;
+            document.getElementById("leave1").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("leavealert").innerHTML = "";
+            document.getElementById("leave1").style.border = "none";
+        }
+
+        if(document.getElementById("arrive").value === "none"){
+            document.getElementById("arrivealert").innerHTML = alertmsg;
+            document.getElementById("arrive1").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("arrivealert").innerHTML = "";
+            document.getElementById("arrive1").style.border = "none";
+        }
+
+        if(document.getElementById("leave").value === document.getElementById("arrive").value){
+            alert("Destination cannot be equal to departure!");
+            event.preventDefault();
+        }
+
+        if(document.getElementById("bus").value === "none"){
+            document.getElementById("busalert").innerHTML = alertmsg;
+            document.getElementById("bus1").style.border = "3px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("busalert").innerHTML = "";
+            document.getElementById("bus1").style.border = "none";
+        }
+    }
+</script>
+</html>

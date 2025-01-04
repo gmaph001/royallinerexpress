@@ -1,0 +1,185 @@
+.content{
+    padding: 3vh 3vw;
+}
+.profile{
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    padding: 5vh 5vw;
+    background-image: linear-gradient(120deg, rgb(0, 0, 0), rgb(0, 0, 80), rgb(0, 0, 137), rgb(0, 0, 183), blue);
+    border-radius: 30px;
+    margin-top: 5vh;
+}
+.profile-photo{
+    background-image: linear-gradient(30deg, rgb(44, 0, 63), rgb(67, 0, 96), rgb(93, 0, 133), rgb(135, 0, 193), rgb(179, 0, 255));
+    border-radius: 20px;
+    width: 20vw;
+    padding: 5vh 2vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.344);
+}
+.photo-hold{
+    margin: auto;
+    width: 230px;
+}
+.photo{
+    width: 200px;
+    height: 100%;
+    border-radius: 20px;
+    margin: auto;
+    border: 3px solid rgb(47, 0, 62);    
+}
+.change-photo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.173);
+    background-color: rgba(224, 224, 224, 0.893);
+    width: 50%;
+    margin: 5vh auto;
+}
+.change-photo input{
+    width: 60%;
+    font-size: 10pt;
+}
+.change-photo:hover{
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 255, 0.499);
+    background-color: aliceblue;
+}
+.inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.405);
+    background-color: rgba(224, 224, 224, 0.893);
+    margin-bottom: 3vh;
+}
+.inputs:hover{
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 255, 0.499);
+    background-color: aliceblue;
+}
+input{
+    border: none;
+    background-color: transparent;
+    width: 80%;
+    font-size: 14pt;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+input::placeholder{
+    color: black;
+    font-weight: bold;
+}
+.profile-button{
+    background-color: rgb(255, 102, 0);
+    color: rgb(107, 0, 143);
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    margin: 3vh 0vw;
+    padding: 5px 10px;
+    font-size: 14pt;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.profile-button:hover{
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+.center{
+    width: 5px;
+    background-color: black;
+    min-height: 30vh;
+}
+.input-grp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-info{
+    width: 45vw;
+    background-color: gray;
+    background-image: linear-gradient(30deg, rgb(78, 31, 0), rgb(125, 50, 0), rgb(174, 70, 0), rgb(215, 86, 0), rgb(255, 102, 0));
+    border-radius: 20px;
+    padding: 3vh 2vw;
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.49);
+}
+.alertphoto{
+    color: red;
+    margin-bottom: 2vh;
+    margin-top: -1vh;
+    font-size: 10pt;
+    text-align: center;
+}
+@media(max-width: 1200px){
+    .profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .center{
+        width: 100%;
+        min-height: 5px;
+        margin: 5vh auto;
+    }
+    .profile-photo{
+        width: 80vw;
+    }
+    .profile-info{
+        width: 80vw;
+    }
+    .input-grp{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .inputs{
+        width: 70vw;
+        margin: 0vh auto 3vh auto;
+    }
+    input{
+        width: 80%;
+    }
+    select{
+        width: 80%;
+    }
+    .profile-button{
+        width: 95%;
+        margin: auto;
+    }
+    .info-button{
+        width: 95%;
+        margin: auto;
+    }
+    .profile2{
+        padding: 2%;
+    }
+    .security{
+        width: 80vw;
+    }
+    .security .inputs{
+        width: 65vw;
+    }
+    @keyframes slide {
+        from{
+            transform: translate(-90vw);
+        }
+        to{
+            transform: translate(0vw);
+        }
+    }
+}
