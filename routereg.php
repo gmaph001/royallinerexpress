@@ -1,3 +1,8 @@
+<?php
+
+    $id = $_GET['id'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
                 <img src="media/icons/logo.png" class="logo">
                 <h1 class="heading">ROUTE REGISTRATION FORM</h1>
             </div>
-            <form action="route.php" method="POST" enctype="multipart/form-data">
+            <?php echo "<form action='route.php?id=$id' method='POST' enctype='multipart/form-data'>";?>
                 <div class="form-content" name="route">
                     <div class="input" name="input">
                         <img src="media/icons/departures.png" class="icons">
@@ -26,7 +31,7 @@
                     </div>
                     <div class="input" name="input">
                         <img src="media/icons/clock.png" class="icons">
-                        <input type="number" name="eta" id="eta" placeholder="Time taken">
+                        <input type="number" name="eta" id="eta" placeholder="Time taken in hrs">
                     </div>
                 </div>
                 <button onclick="sajili()" name="register_route" class="register">Register Route</button>

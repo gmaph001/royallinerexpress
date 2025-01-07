@@ -148,6 +148,7 @@
                                 <a href='admin_home.php?id=$id' target='_blank'>Home</a>
                                 <a href='admin_tickets.php?id=$id' target='_blank'>Tickets</a>
                                 <a href='drivers.php?id=$id' target='_blank'>My Drivers</a>
+                                <a href='admin_route.php?id=$id' target='_blank'>Buses</a>
                                 <a href='company.php?id=$id' target='_blank'>My Company</a>
                                 <a href='admin_review.php?id=$id' target='_blank'>Review</a>
                             ";
@@ -157,6 +158,7 @@
                             "
                                 <a href='admin_home.php?id=$id' target='_blank'>Home</a>
                                 <a href='admin_tickets.php?id=$id' target='_blank'>Tickets</a>
+                                <a href='admin_route.php?id=$id' target='_blank'>Buses</a>
                                 <a href='drivers.php?id=$id' target='_blank'>Drivers</a>
                                 <a href='admin_review.php?id=$id' target='_blank'>Review</a>
                             ";
@@ -166,6 +168,7 @@
                             "
                                 <a href='admin_home.php?id=$id' target='_blank'>Home</a>
                                 <a href='admin_tickets.php?id=$id' target='_blank'>Tickets</a>
+                                <a href='admin_route.php?id=$id' target='_blank'>Buses</a>
                                 <a href='admin_review.php?id=$id' target='_blank'>Review</a>
                             ";
                     }

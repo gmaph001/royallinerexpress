@@ -110,23 +110,23 @@
                                                 </p>
                                             </div>
                                         </a>
-                                        <a href='company.php?id=$id'>
+                                        <a href='buses.php?id=$id'>
                                             <div class='access'>
                                                 <div class='access-header'>
-                                                    <p class='access-head'>Company</p>
+                                                    <p class='access-head'>Buses</p>
                                                 </div>
                                                 <p class='exp'>
-                                                    Monitor your company here...
+                                                    Monitor your buses here...
                                                 </p>
                                             </div>
                                         </a>
-                                        <a href='admin_review.php?id=$id'>
+                                        <a href='admin_route.php?id=$id'>
                                             <div class='access'>
                                                 <div class='access-header'>
-                                                    <p class='access-head'>Reviews</p>
+                                                    <p class='access-head'>Routes</p>
                                                 </div>
                                                 <p class='exp'>
-                                                    Check reviews here...
+                                                    Check routes available here...
                                                 </p>
                                             </div>
                                         </a>
@@ -156,13 +156,13 @@
                                                 </p>
                                             </div>
                                         </a>
-                                        <a href='admin_review.php?id=$id'>
+                                        <a href='admin_route.php?id=$id'>
                                             <div class='access'>
                                                 <div class='access-header'>
-                                                    <p class='access-head'>Reviews</p>
+                                                    <p class='access-head'>Routes</p>
                                                 </div>
                                                 <p class='exp'>
-                                                    Check reviews here...
+                                                    Check routes available here...
                                                 </p>
                                             </div>
                                         </a>
@@ -182,13 +182,13 @@
                                                 </p>
                                             </div>
                                         </a>
-                                        <a href='admin_review.php?id=$id'>
+                                        <a href='admin_route.php?id=$id'>
                                             <div class='access'>
                                                 <div class='access-header'>
-                                                    <p class='access-head'>Reviews</p>
+                                                    <p class='access-head'>Routes</p>
                                                 </div>
                                                 <p class='exp'>
-                                                    Check reviews here...
+                                                    Check routes available here...
                                                 </p>
                                             </div>
                                         </a>

@@ -28,6 +28,7 @@
     $class = [];
     $fare = [];
     $seats = [];
+    $eta = [];
     $size = 0;
     
 
@@ -71,6 +72,19 @@
                 $fare[$size] = $row['fare'];
                 $class[$size] = $row['class'];
                 $seats[$size] = $row['seats']-$row['filled'];
+
+                $querytime = "SELECT * FROM routes";
+                $resulttime = mysqli_query($db, $querytime);
+
+                if($resulttime){
+                    for($i=0; $i<mysqli_num_rows($resulttime); $i++){
+                        $row = mysqli_fetch_array($resulttime);
+
+                        if($route_ID === $row['route_ID']){
+                            $eta[$size] = $row['eta'];
+                        }
+                    }
+                }
 
                 $size++;
             }
@@ -158,7 +172,7 @@
                                                 </div>
                                                 <div class='bus_bottom'>
                                                     <p class='area'>From: $departure</p>
-                                                    <p class='via'>4:00 Hrs</p>
+                                                    <p class='via'>$eta[$i] Hrs</p>
                                                     <p class='area'>To: $destination</p>
                                                 </div>
                                                 <div class='amenities'>";

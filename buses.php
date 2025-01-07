@@ -4,23 +4,14 @@
     include "addr.php";
 
     $id = $_GET['id'];
+    
 
-    $birth = "";
-    $birthmonth = "";
-    $bday = "";
-
-    $firstname = [];
-    $secondname = [];
-    $lastname = [];
-    $birthdate = [];
-    $username = [];
-    $marital_status = [];
-    $home = [];
-    $phone = [];
-    $email = [];
-    $licence = [];
-    $dri_photo = [];
-    $key = [];
+    $bus_no = [];
+    $fare = [];
+    $route_no = [];
+    $departure = [];
+    $destination = [];
+    $eta = [];
     $size = 0;
 
     $query = "SELECT * FROM admin";
@@ -37,61 +28,30 @@
         }
     }
 
-    $query2 = "SELECT * FROM driver_info";
+    $query2 = "SELECT * FROM bus_info";
     $result2 = mysqli_query($db, $query2);
 
     if($result2){
         for($i=0; $i<mysqli_num_rows($result2); $i++){
             $row = mysqli_fetch_array($result2);
 
-            $firstname[$size] = $row['firstname'];
-            $secondname[$size] = $row['secondname'];
-            $lastname[$size] = $row['lastname'];
-            $username[$size] = $row['username'];
-            $birthdate[$size] = $row['birthdate'];
-            $username[$size] = $row['username'];
-            $marital_status[$size] = $row['marital_status'];
-            $home[$size] = $row['residential'];
-            $phone[$size] = $row['phone_no'];
-            $email[$size] = $row['email'];
-            $licence[$size] = $row['licence_no'];
-            $dri_photo[$size] = $row['photo'];
-            $key[$size] = $row['driver_key'];
+            $bus_no[$size] = $row['bus_no'];
+            $route_no[$size] = $row['route_ID'];
+            $fare[$size] = $row['fare'];
 
-            $today = date('Y-m-d');
+            $query3 = "SELECT * FROM routes";
+            $result3 = mysqli_query($db, $query3);
 
-            $year = intval(date('Y'));
-            $month = intval(date('m'));
-            $day = intval(date('d'));
+            if($result3){
+                for($j=0; $j<mysqli_num_rows($result3); $j++){
+                    $rw_routes = mysqli_fetch_array($result3);
 
-            $birthday = str_split($birthdate[$size]);
-            
-            for($j=0; $j<4; $j++){
-                $birth .= $birthday[$j]; 
-            }
-
-            $years[$size] = $year - intval($birth);
-
-            for($j=5; $j<7; $j++){
-                $birthmonth .= $birthday[$j];
-            }
-
-            for($j=8; $j<10; $j++){
-                $bday .= $birthday[$j];
-            }
-
-            if($month < intval($birthmonth)){
-                $years[$size]--;
-            }
-            else{
-                if($month == intval($birthmonth) && $day < intval($bday)){
-                    $years[$size]--;
+                    if($route_no[$size] === $rw_routes['route_ID']){
+                        $departure[$size] = $rw_routes['departure'];
+                        $destination[$size] = $rw_routes['destination'];
+                    }
                 }
             }
-
-            $birth = "";
-            $birthmonth = "";
-            $bday = "";            
 
             $size++;
         }
@@ -138,7 +98,7 @@
                         echo 
                             "
                                 <div class='ticket'>
-                                    <h1>No driver registered! Please, go back and register your drivers!</h1>
+                                    <h1>No buses registered! Please, go back and register your buses!</h1>
                                 </div>
                             ";
                     }
@@ -147,27 +107,28 @@
                             "   
                                 <div class='prompt' id='$i'>
                                     <div class='dialogue'>
-                                        <p>Are you sure you want to delete the driver with username: <b><i>$username[$i]</i></b>?</p>
+                                        <p>Are you sure you want to delete the bus with plate no: <b><i>$bus_no[$i]</i></b>?</p>
                                         <div class='promptbtns'>
-                                            <a href='delete_driver.php?id=$id&&key=$key[$i]' class='p-delete'>Yes</a>
+                                            <a href='delete_bus.php?id=$id&&no=$bus_no[$i]' class='p-delete'>Yes</a>
                                             <p class='p-donot' onclick='hide($i)'>No</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class='ticket'>
-                                    <h1>User: $username[$i]</h1>
+                                    <h1>Plate No: $bus_no[$i]</h1>
                                     <div class='edit'>
                                         <div class='prof-photo'>
-                                            <img src='$dri_photo[$i]' class='photo'>
+                                            <img src='media/icons/bus.png' class='photo'>
                                         </div>
                                         <div class='info'>
                                             <div class='details'>
-                                                <p class='name'>$firstname[$i]</p>
-                                                <p class='name'>$secondname[$i]</p>
-                                                <p class='name'>$lastname[$i]</p>
+                                                <p class='name'>$departure[$i]</p>
+                                                <p class='name'>To</p>
+                                                <p class='name'>$destination[$i]</p>
+                                                <p class='name'>TZS $fare[$i]</p>
                                             </div>
                                             <div class='btns'>
-                                                <a href='update_driver.php?id=$id&&key=$key[$i]' class='update'>Update</a>
+                                                <a href='update_bus.php?id=$id&&no=$bus_no[$i]' class='update'>Update</a>
                                                 <a class='delete' onclick='show($i)'>Delete</a>
                                             </div>
                                         </div>
@@ -175,6 +136,7 @@
                                 </div>
                             ";
                     }
+                    echo "<a href='busreg.php?id=$id' class='plus'>+</a>";
                 ?>
                 
             </div>

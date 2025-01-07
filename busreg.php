@@ -1,3 +1,8 @@
+<?php
+
+    $id = $_GET['id'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
                 <img src="media/icons/logo.png" class="logo">
                 <h1 class="heading">BUS REGISTRATION FORM</h1>
             </div>
-            <form action="bus.php" name="bus" enctype="multipart/form-data" method="POST">
+            <?php echo "<form action='bus.php?id=$id' name='bus' enctype='multipart/form-data' method='POST'>";?>
                 <div class="form-content">
                     <div class="left">
                         <div class="input">

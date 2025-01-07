@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/admin_navBar.css">
+    <link rel="stylesheet" type="text/css" href="css/admin_route.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | Administrator | Routes</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar-all">
+            <div class="main-cluster">
+                <iframe src="sidebar.html" class="sidebar"></iframe>
+                <img src="media/icons/close.png" class="icons head">
+            </div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <img src="media/icons/menu.png" class="icons menu">
+                <h1>ROYAL LINER EXPRESS</h1>
+                <img src="media/icons/logo.png" class="logo">
+                <div class="horizontal_menu">
+                    <a href="notifications.html" class="notification" onmouseover="notifyfunc(1)" onmouseleave="notifyfunc(2)"><img src="media/icons/bell.png" class="icons notify"><p>1</p></a>
+                    <a href="account.html"><img src="media/images/profiles/IMG_20180819_121655.jpg" class="icons account"></a>
+                    <a href="login.html"><img src="media/icons/logout.png" class="icons"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="routes-collection">
+                    <div class="route">
+                        <div class="info">
+                            <p class="area">Dar es Salaam</p>
+                            <p>To</p>
+                            <p class="area">Tanga</p>
+                            <p class="time">ETA: 4hrs</p>
+                        </div>
+                    </div>
+                    <div class="show" onclick="show(1)" id="show1">
+                        <img src="media/icons/right-arrow.png" class="arrow" id="arrow1">
+                    </div>
+                    <div class="buses" id="1">
+                        <div class="bus">
+                            <img src="media/icons/bus.png" class="bus-icon">
+                            <p>Bus No: T679DJK</p>
+                            <p>Fare: 35000</p>
+                            <p>Available seats: 16</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="bus.html" class="see"><img src="media/icons/bus.png" class="icons"></a>
+                <a href="route.html" class="plus">+</a>
+            </div>
+            <div class="footer">
+                <p>&COPY; ROYAL LINER EXPRESS 2025</p>
+            </div>
+        </div>
+    </div>    
+</body>
+<script src="js/admin_navBar.js"></script>
+<script>
+
+    let a = 0;
+
+    function even(n){
+        if(n%2 == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function show(value){
+        let buses = document.getElementById(value);
+        let arrow = document.getElementById("arrow"+value);
+        let show = document.getElementById("show"+value);
+
+        a++;
+
+        if(even(a)){
+            buses.style.display = "none";
+            show.style.backgroundColor = "rgb(255, 102, 0)";
+            show.style.borderRadius = "0px 0px 10px 10px";
+            arrow.style.transform = "rotate(90deg)";
+        }
+        else{
+            buses.style.display = "flex";
+            show.style.backgroundColor = "rgb(227, 142, 255)";
+            show.style.borderRadius = "0px";
+            arrow.style.transform = "rotate(270deg)";
+        }
+
+    }
+
+</script>
+</html>

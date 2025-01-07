@@ -3,8 +3,12 @@
     error_reporting(0);
 
     require "connection.php";
+
+    $id = $_GET['id'];
     $refresh = [];
     $size = 0;
+
+    $message = "";
 
     $query0 = "SELECT * FROM bus_info";
     $result0 = mysqli_query($db, $query0);
@@ -33,8 +37,9 @@
             }
         }
 
-        $from = $_POST['from'];
-        $to = $_POST['to'];
+        $from = strtoupper($_POST['from']);
+        $to = strtoupper($_POST['to']);
+        $eta = $_POST['eta'];
         $confirm = false;
         $buses = false;
         $buses2 = false;
@@ -84,8 +89,10 @@
                     $result4 = mysqli_query($db, $query4);
                 }
                 else{
-                    $query5 = "INSERT INTO routes(departure, destination) VALUES('$from', '$to')";
+                    $query5 = "INSERT INTO routes(departure, destination, eta) VALUES('$from', '$to', '$eta')";
                     $result5 = mysqli_query($db, $query5);
+                    $queryx = "INSERT INTO routes(departure, destination, eta) VALUES('$to', '$from', '$eta')";
+                    $resultx = mysqli_query($db, $queryx);
                 }
 
                 $query3 = "SELECT * FROM routes";
@@ -105,18 +112,18 @@
                 }
 
                 if($result && $result2 && $result4){
-                    echo "Done";
+                    header("location:buses.php?id=$id");
                 }
                 else{
-                    echo "Error";
+                    $message .= "Error<br><br>";
                 }
             }
         }
 
         if($buses){
-            echo "The bus is already registered!";
+            $message .= "The bus is already registered!<br><br>";
         }
-        elseif(!$buses2){
+        else if(!$buses2){
             $query = "INSERT INTO bus_info(bus_no, seats, class, fare, position, op_date) VALUES('$bus_no', '$seats', '$class', '$fare', '$from', '$date')";
             $result = mysqli_query($db, $query);
 
@@ -147,8 +154,10 @@
                 $result4 = mysqli_query($db, $query4);
             }
             else{
-                $query5 = "INSERT INTO routes(departure, destination) VALUES('$from', '$to')";
+                $query5 = "INSERT INTO routes(departure, destination, eta) VALUES('$from', '$to', '$eta')";
                 $result5 = mysqli_query($db, $query5);
+                $queryx = "INSERT INTO routes(departure, destination, eta) VALUES('$to', '$from', '$eta')";
+                $resultx = mysqli_query($db, $queryx);
             }
 
             $query3 = "SELECT * FROM routes";
@@ -168,12 +177,30 @@
             }
 
             if($result && $result2 && $result4){
-                echo "Done";
+                header("location:buses.php?id=$id");
             }
             else{
-                echo "Error";
+                $message .= "Error<br><br>";
             }
         }
         
 
     }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | login</title>
+</head>
+<body>
+    <div class="body">
+        <div class="result">
+            <p><?php echo $message ?></p>
+        </div>
+    </div>
+</body>
+</html>

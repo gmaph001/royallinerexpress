@@ -1,6 +1,12 @@
 .content{
     padding: 3vh 3vw;
 }
+.content h1{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-bottom: 3vh;
+}
 .profile{
     display: flex;
     align-items: top;

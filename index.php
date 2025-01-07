@@ -5,6 +5,11 @@
     $areas2 = [];
     $size = 0;
     $size2 = 0;
+    $size3 = 0;
+    $size4 = 0;
+    $n = 0;
+
+    $check = false;
 
     $query = "SELECT * FROM routes";
     $result = mysqli_query($db, $query);
@@ -20,8 +25,45 @@
         }
     }
 
-    
+    for($i=0; $i<$size; $i++){
+        if($i>0){
+            for($j=0; $j<$size3; $j++){
+                if($areas[$i] === $areas[$j]){
+                    $check = true;
+                }
+            }
+            if(!$check){
+                $areas[$size3] = $areas[$i];
+                $size3++;
+            }
+        }
+        else{
+            $areas[$size3] = $areas[$i];
+            $size3++;
+        }
 
+        $check = false;
+    }
+
+    for($i=0; $i<$size2; $i++){
+        if($i>0){
+            for($j=0; $j<$size4; $j++){
+                if($areas2[$i] === $areas2[$j]){
+                    $check = true;
+                }
+            }
+            if(!$check){
+                $areas2[$size4] = $areas2[$i];
+                $size4++;
+            }
+        }
+        else{
+            $areas2[$size4] = $areas2[$i];
+            $size4++;
+        }
+
+        $check = false;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +110,7 @@
                             <select name="depart" class="areas">
                                 <option value="none">Select departure</option>
                                 <?php 
-                                    for($i=0; $i<$size; $i++){
+                                    for($i=0; $i<$size3; $i++){
                                         echo 
                                             "
                                                 <option value='$areas[$i]'>$areas[$i]</option>
@@ -83,7 +125,7 @@
                             <select name="destination" class="areas">
                                 <option value="none">Select destination</option>
                                 <?php 
-                                    for($i=0; $i<$size2; $i++){
+                                    for($i=0; $i<$size4; $i++){
                                         echo 
                                             "
                                                 <option value='$areas2[$i]'>$areas2[$i]</option>

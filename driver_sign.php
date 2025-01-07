@@ -29,38 +29,35 @@
 
             
             if($day > 28){
-                if($day > 29){
-                    if($month == 2 && $year%4 == 0){
+                if($day > 30){
+                    if($month == 4 || $month == 6 || $month == 9 || $month == 11){
                         $day = 1;
                         $month++;
                     }
-                    else{ 
-                        if($day > 30){
-                            if($month == 4 || $month == 6 || $month == 9 || $month == 11){
+                    else{
+                        if($day > 31){
+                            if($month == 12){
+                                $day = 1;
+                                $month = 1;
+                                $year+=4;
+                            }
+                            else{
                                 $day = 1;
                                 $month++;
                             }
-                            else{
-                                if($day > 31){
-                                    if($month == 12){
-                                        $day = 1;
-                                        $month = 1;
-                                        $year++;
-                                    }
-                                    else{
-                                        $day = 1;
-                                        $month++;
-                                    }
-                                }
-                            }
                         }
                     }
+                }  
+            }
+
+            if($day > 28 && $month == 2){
+                if($year%4 == 0 && $day > 29){
+                    $day = 1;
+                    $month++;
                 }
-                else{
-                    if($month == 2){
-                        $day = 1;
-                        $month++;
-                    }
+                if($year%4 != 0 && $day > 28){
+                    $day = 1;
+                    $month++;
                 }
             }
 

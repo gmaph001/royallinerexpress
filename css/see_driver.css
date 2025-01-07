@@ -1,6 +1,7 @@
 .content{
     background-color: rgb(255, 209, 178);
     padding: 5vh 5vw;
+    min-height: 75vh;
 }
 .ticket{
     background-color: rgb(59, 0, 79);
@@ -91,6 +92,7 @@
     padding: 5px 10px;
     margin-top: 3vh;
     width: 15vw;
+    cursor: pointer;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.51);
@@ -99,6 +101,94 @@
     color: red;
     background-color: white;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 255, 0.536);
+}
+.prompt{
+    width: 70vw;
+    height: 50vh;
+    padding: 30vh 30vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 100;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.288);
+}
+.dialogue{
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 5vh 5vw;
+    width: 30vw;
+}
+.dialogue p{
+    font-size: 14pt;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.promptbtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+.p-delete{
+    background-color: rgb(255, 0, 0);
+    font-size: 14pt;
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.p-delete:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+.p-donot{
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: green;
+    font-size: 14pt;
+    cursor: pointer;
+    font-weight: bold;
+}
+.p-donot:hover{
+    background-color: black;
+    color: white;
+}
+.plus{
+    position: fixed;
+    bottom: 10vh;
+    right: 2vw;
+    background-color: rgb(255, 255, 255);
+    color: blue;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 24pt;
+    font-weight: bold;
+    z-index: 100;
+    box-shadow: 0px 0px 3px 3px rgba(255, 102, 0, 0.573);
+    animation: drop 1.5s ease-in-out normal;
+}
+.plus:hover{
+    background-color: rgb(56, 0, 75);
+    color: rgb(255, 102, 0);
+    box-shadow: 0px 0px 3px 3px rgba(255, 102, 0, 0.573);
+}
+@keyframes drop {
+    from{
+        transform: translateY(-70vh);
+        color: rgb(255, 209, 178);
+        background-color: rgb(255, 209, 178);
+        box-shadow: 0px 0px 3px 3px rgb(255, 209, 178);
+    }
+    to{
+        transform: translateY(0vh);
+        font-size: 24pt;
+        background-color: rgb(255, 255, 255);
+        color: blue;
+        box-shadow: 0px 0px 3px 3px rgba(255, 102, 0, 0.573);
+    }
 }
 @media(max-width:1100px){
     .edit{
@@ -174,5 +264,36 @@
     .delete{
         width: 65vw;
         margin-top: 3vh;
+    }
+    .prompt{
+        width: 90vw;
+        padding: 30vh 5vw;
+    }
+    .dialogue{
+        width: 70vw;
+        margin: auto;
+    }
+    .see{
+        left: 5vw;
+        bottom: 12vh;
+    }
+    .see .icons{
+        width: 20px;
+        height: 20px;
+    }
+    @keyframes drop {
+        from{
+            transform: translateX(-95vw);
+            color: rgb(57, 0, 76);
+            background-color: rgb(57, 0, 76);
+            box-shadow: 0px 0px 3px 3px rgb(57, 0, 76);
+        }
+        to{
+            transform: translateX(0vw);
+            font-size: 24pt;
+            background-color: rgb(255, 255, 255);
+            color: blue;
+            box-shadow: 0px 0px 3px 3px rgba(255, 102, 0, 0.573);
+        }
     }
 }

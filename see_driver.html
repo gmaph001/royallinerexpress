@@ -28,6 +28,24 @@
                 </div>
             </div>
             <div class="content">
+                <div class="prompt" id="1">
+                    <div class="dialogue">
+                        <p>Are you sure you want to delete the driver with username: <b><i>gmaph__001</i></b>?</p>
+                        <div class="promptbtns">
+                            <a href="delete_driver.php" class="p-delete">Yes</a>
+                            <p class="p-donot" onclick="hide(1)">No</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="prompt" id="2">
+                    <div class="dialogue">
+                        <p>Are you sure you want to delete the driver with username: <b><i>BMosha</i></b>?</p>
+                        <div class="promptbtns">
+                            <a href="delete_driver.php" class="p-delete">Yes</a>
+                            <p class="p-donot" onclick="hide(2)">No</p>
+                        </div>
+                    </div>
+                </div>
                 <div class='ticket'>
                     <h1>Ticket No: 01</h1>
                     <div class='edit'>
@@ -42,7 +60,26 @@
                             </div>
                             <div class='btns'>
                                 <a href='update_driver.html' class='update'>Update</a>
-                                <a href='delete_driver.html' class='delete'>Delete</a>
+                                <p class='delete' onclick="show(1)">Delete</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='ticket'>
+                    <h1>Ticket No: 01</h1>
+                    <div class='edit'>
+                        <div class='prof-photo'>
+                            <img src='media/images/profiles/IMG_20180819_121655.jpg' class='photo'>
+                        </div>
+                        <div class='info'>
+                            <div class='details'>
+                                <p class='name'>GEORGE</p>
+                                <p class='name'>GODSON</p>
+                                <p class='name'>MAPHOLE</p>
+                            </div>
+                            <div class='btns'>
+                                <a href='update_driver.html' class='update'>Update</a>
+                                <p class='delete' onclick="show(2)">Delete</p>
                             </div>
                         </div>
                     </div>
@@ -55,4 +92,30 @@
     </div>
 </body>
 <script src="js/admin_navBar.js"></script>
+<script>
+    let delbtn = document.querySelector('.delete');
+    let promptbox = document.querySelector('.prompt');
+    let no = document.querySelector('.p-donot');
+
+    delbtn.addEventListener('click', function(){
+        promptbox.style.display = "block";
+    })
+
+    no.addEventListener('click', function(){
+        promptbox.style.display = "none";
+    })
+
+    function show(value){
+        promptbox = document.getElementById(value);
+
+        promptbox.style.display = "block";
+    }
+
+    function hide(value){
+        promptbox = document.getElementById(value);
+
+        promptbox.style.display = "none";
+    }
+
+</script>
 </html>
