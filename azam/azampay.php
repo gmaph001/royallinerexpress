@@ -1,102 +1,101 @@
-<?php 
+<?php
 
-class azampay
+    include('api.php');
 
-{   //Options are sandbox and production
-  private static $environment = "sandbox";
-	private static $appName = "ROYAL LINER EXPRESS";
-	private static $clientId = "7daf23e5-4ba3-4e17-a224-3e54403c6286";
-	private static $clientSecret = "F/Bg/M2UIvFutvnmrYNc0gaKKOtRDoAGo5s0oMMUfkMCZjjoGV8MTdFWDAQ4pgfY5sKiUohX9rQ39L5nn1Hwcrs4dE5LUAQvSNX6scDsNgqIg+Dn79edEVtOOTrYMtgmvNw8zrW7o/UYKgTSGqmJ4wPF6fjornGp1+KEGAocr/HkZtoP8YyuxifOn1Iv8q0qcphdRdeK9rX+FDlpR5U+fB48CfUiknR/ZCEYqdlUQxwv+asY6J+QaoTOuBoSImsw86/oBVa3vm6zx9IAvPBnt81BIvXrSebSbv5aOxcCQwXGbnaBdODYrwL2agejG9lQnIQtfXlsLUDoWeClYkG12ySsnU5Zk4QirXO1JG2f2CBRMxhdQcLo+IbXiblL7rCCxBG1++c3jPChtkwogki8TOchSYIT/556eLRzxtB7SIoK6Kj0N8SvhXKdOZ5nTUslPZ8QD4UKIgFGkfy3uo02egdf+2Or+15J/TKnBGnb9VpsmTph1rP6RGkaGYkx8vgSgNnfR6sFueUac6v8SYojCuxAEX/N3FDRJhbQ3bL9BenNBvmXGlUq0rOKqN8j/inQqkMtKL8T4xtiTVy/dYRUj1E6YcY1KxIJTaMwi6522rbmwHVlJklUJZ6Ze1N+urtReI+XUrQNdDyPOVemUyGG6t3FEMJUj1OJpmjlz4wKWzc=";
+    // This is to ensure browser does not timeout after 30 seconds
+    ini_set('max_execution_time', 300);
+    set_time_limit(300);
 
-	//Environment URLS
-	public static function envUrls()
-	{
-		$auth_url = "https://authenticator-sandbox.azampay.co.tz";
-		$checkout_url = "https://sandbox.azampay.co.tz";
-        
-        //Base URLs for production
-		if (azampay::$environment == "production") {
-			$auth_url = "https://authenticator.azampay.co.tz";
-		    $checkout_url = "https://checkout.azampay.co.tz";
-			
-		}
+    // Public key on the API listener used to encrypt keys
+    $public_key = 'MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAszE+xAKVB9HRarr6/uHYYAX/RdD6KGVIGlHv98QKDIH26ldYJQ7zOuo9qEscO0M1psSPe/67AWYLEXh13fbtcSKGP6WFjT9OY6uV5ykw9508x1sW8UQ4ZhTRNrlNsKizE/glkBfcF2lwDXJGQennwgickWz7VN+AP/1c4DnMDfcl8iVIDlsbudFoXQh5aLCYl+XOMt/vls5a479PLMkPcZPOgMTCYTCE6ReX3KD2aGQ62uiu2T4mK+7Z6yvKvhPRF2fTKI+zOFWly//IYlyB+sde42cIU/588msUmgr3G9FYyN2vKPVy/MhIZpiFyVc3vuAAJ/mzue5p/G329wzgcz0ztyluMNAGUL9A4ZiFcKOebT6y6IgIMBeEkTwyhsxRHMFXlQRgTAufaO5hiR/usBMkoazJ6XrGJB8UadjH2m2+kdJIieI4FbjzCiDWKmuM58rllNWdBZK0XVHNsxmBy7yhYw3aAIhFS0fNEuSmKTfFpJFMBzIQYbdTgI28rZPAxVEDdRaypUqBMCq4OstCxgGvR3Dy1eJDjlkuiWK9Y9RGKF8HOI5a4ruHyLheddZxsUihziPF9jKTknsTZtF99eKTIjhV7qfTzxXq+8GGoCEABIyu26LZuL8X12bFqtwLAcjfjoB7HlRHtPszv6PJ0482ofWmeH0BE8om7VrSGxsCAwEAAQ==';
 
-		return ["auth_url"=>$auth_url, "checkout_url"=>$checkout_url ];
+    // Create Context with API to request a SessionKey
+    $context = new APIContext();
+    // Api key
+    $context->set_api_key('6bc4157dbee34d409118e0978dc6dd17');
+    // Public key
+    $context->set_public_key($public_key);
+    // Use ssl/https
+    $context->set_ssl(true);
+    // Method type (can be GET/POST/PUT)
+    $context->set_method_type(APIMethodType::GET);
+    // API address
+    $context->set_address('uat.openapi.m-pesa.com');
+    // API Port
+    $context->set_port(443);
+    // API Path
+    $context->set_path('/sandbox/ipg/v2/vodacomTZN/getSession/');
 
-	}
-	//Authorisation token
-	public static function authtoken()
-	{
+    // Add/update headers
+    $context->add_header('Origin', '*');
 
+    // Parameters can be added to the call as well that on POST will be in JSON format and on GET will be URL parameters
+    // context->add_parameter('key', 'value');
 
-            $curl = curl_init();
+    // Create a request object
+    $request = new APIRequest($context);
 
-            curl_setopt_array($curl, array(
-              CURLOPT_URL => 'https://authenticator-sandbox.azampay.co.tz/AppRegistration/GenerateToken',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_POSTFIELDS =>'{
-              "appName": "'.azampay::$appName.'",
-              "clientId": "'.azampay::$clientId.'",
-              "clientSecret": "'.azampay::$clientSecret.'"
-              }',
-                CURLOPT_HTTPHEADER => array(
-                  'Content-Type: application/json'
-                ),
-              ));
+    // Do the API call and put result in a response packet
+    $response = null;
 
-              $response = curl_exec($curl);
-              $result = json_decode($response);
-
-              curl_close($curl);
-              return $result;
-
-	}
-
-	//MNO checkout
-	public static function mnocheckout($accountNumber, $amount, $currency, $provider)
-    {
-        $externalId = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex(random_bytes(16)), 4));
-        $callbackUrl = "https://royallinerexpress.ct.ws/azam/callback_url.php"; 
-
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => ''.azampay::envUrls()["checkout_url"].'/azampay/mno/checkout',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => json_encode([
-                "accountNumber" => $accountNumber,
-                "additionalProperties" => [
-                    "callbackUrl" => $callbackUrl
-                ],
-                "amount" => $amount,
-                "currency" => $currency,
-                "externalId" => $externalId,
-                "provider" => $provider
-            ]),
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer ' . azampay::authtoken()->data->accessToken,
-                'Content-Type: application/json'
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        $result = json_decode($response);
-        curl_close($curl);
-
-        // Return checkout response and external ID
-        return array($result, $externalId);
+    try {
+        $response = $request->execute();
+    } catch(exception $e) {
+        echo 'Call failed: ' . $e->getMessage() . '<br>';
     }
 
-	}
+    if ($response->get_body() == null) {
+        throw new Exception('SessionKey call failed to get result. Please check.');
+    }
 
+    // Display results
+    echo $response->get_status_code() . '<br>';
+    echo $response->get_headers() . '<br>';
+    echo $response->get_body() . '<br>';
+
+    // Decode JSON packet
+    $decoded = json_decode($response->get_body());
+
+    // The above call issued a sessionID which can be used as the API key in calls that needs the sessionID
+    $context = new APIContext();
+    $context->set_api_key($decoded->output_SessionID);
+    $context->set_public_key($public_key);
+    $context->set_ssl(true);
+    $context->set_method_type(APIMethodType::POST);
+    $context->set_address('uat.openapi.m-pesa.com');
+    $context->set_port(443);
+    $context->set_path('/sandbox/ipg/v2/vodafoneGHA/c2bPayment/singleStage/');
+
+    $context->add_header('Origin', '*');
+
+    $context->add_parameter('input_Amount', '10');
+    $context->add_parameter('input_Country', 'GHA');
+    $context->add_parameter('input_Currency', 'GHS');
+    $context->add_parameter('input_CustomerMSISDN', '000000000001');
+    $context->add_parameter('input_ServiceProviderCode', '000000');
+    $context->add_parameter('input_ThirdPartyConversationID', 'asv02e5958774f7ba228d83d0d689761');
+    $context->add_parameter('input_TransactionReference', 'T1234C');
+    $context->add_parameter('input_PurchasedItemsDesc', 'Shoes');
+
+    $request = new APIRequest($context);
+
+    // SessionID can take up to 30 seconds to become 'live' in the system and will be invalid until it is
+    sleep(30);
+
+    $response = null;
+
+    try {
+        $response = $request->execute();
+    } catch(exception $e) {
+        echo 'Call failed: ' . $e->getMessage() . '<br>';
+    }
+
+    if ($response->get_body() == null) {
+        throw new Exception('API call failed to get result. Please check.');
+    }
+
+    echo $response->get_status_code() . '<br>';
+    echo $response->get_headers() . '<br>';
+    echo $response->get_body() . '<br>';
+
+?>

@@ -81,13 +81,13 @@
     <div class="footer">
         <div class="footer_content">
             <div class="footer_logo">
-                <a href="index.php"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
+                <a href="index.html"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
             </div>
             <div class="quick">
                 <h1>Go to</h1>
-                <a href="index.php">Homepage</a>
-                <a href="gallery.php">Gallery</a>
-                <a href="login.php">Login</a>
+                <a href="index.html">Homepage</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="login.html">Login</a>
             </div>
             <div class="contact">
                 <h1>Contact Us</h1>
@@ -109,17 +109,21 @@
             </div>
             <div class="comments">
                 <h1>Comment</h1>
-                <form>
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="Email">
-                    <textarea placeholder="Write your comments here..."></textarea>
-                    <button class="comment_send">Send</button>
+                <form action="review.php" name="review" method="POST">
+                    <input type="text" name="name" id="jina" placeholder="Name">
+                    <p class="attent" id="nameattent"></p>
+                    <input type="email" name="email" id="pepe" placeholder="Email">
+                    <p class="attent" id="emailattent"></p>
+                    <textarea name="commentation" id="ujumbe" placeholder="Write your comments here..."></textarea>
+                    <p class="attent" id="commentattent"></p>
+                    <button class="comment_send" onclick="comment()">Send</button>
                 </form>
             </div>
         </div>
-        <p>&copy; Royal Liner Express 2024.</p>
+        <p class="last">&copy; Royal Liner Express 2024.</p>
     </div> 
 </body>
 <script src="js/navBar.js"></script>
 <script src="js/pay_info.js"></script>
+<script src="js/review.js"></script>
 </html>

@@ -1,6 +1,8 @@
 <?php
     include '../connection.php'; // Include your database connection file
 
+    $billkey = $_GET['bill'];
+
     
     $rawData = file_get_contents('php://input');
 
@@ -47,7 +49,7 @@
     if ($status === "SUCCESS") {
         
         $stmt = $conn->prepare("UPDATE passenger_info SET pay_status = ? WHERE bill_Id = ?");
-        $pay_status = "Success";
+        $pay_status = $status;
         $stmt->bind_param("ss", $pay_status, $externalId); 
 
         if ($stmt->execute()) {

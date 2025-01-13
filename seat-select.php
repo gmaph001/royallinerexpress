@@ -503,48 +503,51 @@
             </div>
         </div>
         <div class="footer">
-            <div class="footer_content">
-                <div class="footer_logo">
-                    <a href="index.php"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
-                </div>
-                <div class="quick">
-                    <h1>Go to</h1>
-                    <a href="index.php">Homepage</a>
-                    <a href="gallery.php">Gallery</a>
-                    <a href="login.php">Login</a>
-                </div>
-                <div class="contact">
-                    <h1>Contact Us</h1>
-                    <div class="contact_icons">
-                        <a href="https://instagram.com/royallinerexpress">
-                            <img src="media/icons/instagram.png" class="social_icons">
-                        </a>
-                        <a href="https://facebook.com/royallinerexpress">
-                            <img src="media/icons/facebook.jpg" class="social_icons">
-                        </a>
-                        <a href="https://x.com/royallinerexpress">
-                            <img src="media/icons/x.jpg" class="social_icons">
-                        </a>
-                        <a href="https://tiktok.com/royallinerexpress">
-                            <img src="media/icons/tiktok.png" class="social_icons">
-                        </a>
-                    </div>
-                    <p>@royallinerexpress</p>
-                </div>
-                <div class="comments">
-                    <h1>Comment</h1>
-                    <form>
-                        <input type="text" name="name" placeholder="Name">
-                        <input type="email" name="email" placeholder="Email">
-                        <textarea placeholder="Write your comments here..."></textarea>
-                        <button class="comment_send">Send</button>
-                    </form>
-                </div>
+        <div class="footer_content">
+            <div class="footer_logo">
+                <a href="index.html"><img src="media/icons/logo.jpeg" class="logo_photo"></a>
             </div>
-            <p>&copy; Royal Liner Express 2024.</p>
-        </div> 
-    </div>
+            <div class="quick">
+                <h1>Go to</h1>
+                <a href="index.html">Homepage</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="contact">
+                <h1>Contact Us</h1>
+                <div class="contact_icons">
+                    <a href="https://instagram.com/royallinerexpress">
+                        <img src="media/icons/instagram.png" class="social_icons">
+                    </a>
+                    <a href="https://facebook.com/royallinerexpress">
+                        <img src="media/icons/facebook.jpg" class="social_icons">
+                    </a>
+                    <a href="https://x.com/royallinerexpress">
+                        <img src="media/icons/x.jpg" class="social_icons">
+                    </a>
+                    <a href="https://tiktok.com/royallinerexpress">
+                        <img src="media/icons/tiktok.png" class="social_icons">
+                    </a>
+                </div>
+                <p>@royallinerexpress</p>
+            </div>
+            <div class="comments">
+                <h1>Comment</h1>
+                <form action="review.php" name="review" method="POST">
+                    <input type="text" name="name" id="jina" placeholder="Name">
+                    <p class="attent" id="nameattent"></p>
+                    <input type="email" name="email" id="pepe" placeholder="Email">
+                    <p class="attent" id="emailattent"></p>
+                    <textarea name="commentation" id="ujumbe" placeholder="Write your comments here..."></textarea>
+                    <p class="attent" id="commentattent"></p>
+                    <button class="comment_send" onclick="comment()">Send</button>
+                </form>
+            </div>
+        </div>
+        <p class="last">&copy; Royal Liner Express 2024.</p>
+    </div> 
 </body>
 <script src="js/navBar.js"></script>
 <script src="js/seats.js"></script>
+<script src="js/review.js"></script>
 </html>

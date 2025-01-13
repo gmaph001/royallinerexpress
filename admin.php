@@ -4,7 +4,7 @@
 
     include "connection.php";
 
-    $message;
+    $message = "";
 
     if(isset($_POST['login'])){
         $username = $_POST['username'];
@@ -46,7 +46,7 @@
                 }
             }
             else{
-                $message = "Incorrect Username! Please, <br><br> <a href='login.php'><i>try again</i></a> <br>";
+                $message = "Incorrect Username or password! Please, <br><br> <a href='login.php'><i>try again</i></a> <br>";
             }
         }
     }
