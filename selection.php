@@ -76,7 +76,7 @@
                 $resulttime = mysqli_query($db, $querytime);
 
                 if($resulttime){
-                    for($i=0; $i<mysqli_num_rows($resulttime); $i++){
+                    for($l=0; $l<mysqli_num_rows($resulttime); $l++){
                         $row = mysqli_fetch_array($resulttime);
 
                         if($route_ID === $row['route_ID']){
@@ -185,12 +185,12 @@
                                                                 </div>
                                                             ";
                                                     }
-                                                    if($row['azam'] === "available"){
+                                                    if($row['ac'] === "available"){
                                                         echo 
                                                             "
                                                                 <div class='extra'>
-                                                                    <img src='media/icons/azam.png' class='lux azam'>
-                                                                    <p class='luxname'>Azam</p>
+                                                                    <img src='media/icons/ac.png' class='lux azam'>
+                                                                    <p class='luxname'>AC</p>
                                                                 </div>
                                                             ";
                                                     }
@@ -278,7 +278,7 @@
                     <p class="attent" id="emailattent"></p>
                     <textarea name="commentation" id="ujumbe" placeholder="Write your comments here..."></textarea>
                     <p class="attent" id="commentattent"></p>
-                    <button class="comment_send" onclick="comment()">Send</button>
+                    <button name="rev_send" class="comment_send" onclick="comment()">Send</button>
                 </form>
             </div>
         </div>

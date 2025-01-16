@@ -197,7 +197,7 @@
                     <p class="attent" id="emailattent"></p>
                     <textarea name="commentation" id="ujumbe" placeholder="Write your comments here..."></textarea>
                     <p class="attent" id="commentattent"></p>
-                    <button class="comment_send" onclick="comment()">Send</button>
+                    <button name="rev_send" class="comment_send" onclick="comment()">Send</button>
                 </form>
             </div>
         </div>
