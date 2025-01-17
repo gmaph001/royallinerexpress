@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+}
+body{
+    overflow-x: hidden;
+    background-color: rgb(255, 209, 178);
+}
+.content{
+    background-color: rgb(255, 209, 178);
+    padding: 40vh 38vw;
+
+}
+.message{
+    background-color: rgb(40, 0, 54);
+    padding: 2vh 2vw;
+    color:white;
+    font-size: 16pt;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    font-weight: bold;
+    animation: appear 2s ease-in-out normal;
+}
+.message p{
+    font-size: 16pt;
+    margin-left: 10px;
+}
+.check{
+    width: 30px;
+    height: 30px;
+}
+@keyframes appear {
+    from{
+        transform: translateX(-60vw);
+    }
+    to{
+        transform: translateX(0vw);
+    }
+}
+@media (max-width: 700px) {
+    .content{
+        padding: 40vh 5vw;
+    }
+    .message{
+        padding: 3vh 3vw;
+        font-size: 18pt;
+    }
+    @keyframes appear {
+        from{
+            transform: translateX(-95vw);
+        }
+        to{
+            transform: translateX(0vw);
+        }
+    }
+}

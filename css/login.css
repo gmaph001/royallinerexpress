@@ -35,6 +35,7 @@ body{
     font-family: candara;
     margin-bottom: 5vh;
     text-align: center;
+    animation: display 2s ease-in-out normal;
 }
 .login{
     background-image: linear-gradient(30deg, rgb(44, 0, 63), rgb(67, 0, 96), rgb(93, 0, 133), rgb(135, 0, 193), rgb(179, 0, 255));
@@ -53,6 +54,7 @@ body{
     font-family: candara;
     margin-bottom: 5vh;
     text-align: center;
+    animation: display 2s ease-in-out normal;
 }
 .inputs{
     display: flex;
@@ -181,7 +183,7 @@ input:focus{
     margin-bottom: 5vh;
     text-align: center;
     display: block;
-    /* animation: display 1s 2s ease-in-out normal; */
+    animation: display 2s ease-in-out normal;
 }
 .signup-button{
     background-color: rgb(255, 102, 0);
@@ -267,8 +269,8 @@ input:focus{
     from{
         background-image: linear-gradient(30deg, aliceblue, aliceblue, aliceblue, aliceblue, aliceblue);
         transform: rotateY(180deg) translateX(15vw);
-        box-shadow: 0px 0px 5px 5px aliceblue;
-        margin: 3px solid aliceblue;
+        box-shadow: 0px 0px 5px 5px rgb(255, 209, 178);
+        margin: 3px solid rgb(255, 209, 178);
         width: 0vw;
         font-size: 0pt;
     }
@@ -283,8 +285,8 @@ input:focus{
 }
 @keyframes onesha {
     from{
-        color: rgb(255, 255, 255);
-        background-color: white;
+        color: rgb(255, 209, 178);
+        background-color: rgb(255, 209, 178);
     }
     to{
         background-color: rgb(255, 102, 0);
@@ -325,6 +327,16 @@ input:focus{
     }
     to{
         color: black;
+    }
+}
+@keyframes display {
+    from{
+        color: rgb(255, 209, 178);
+        font-size: 0pt;
+    }
+    to{
+        color: white;
+        font-size: 16pt;;
     }
 }
 @media(max-width: 900px){

@@ -28,10 +28,6 @@
                         <p class="signup-initiate">SignUp</p>
                         <p class="forget">Forgot Password</p>
                     </div>
-                    <div class="remember">
-                        <input type="checkbox" class="remember_me" name="remember" value="kumbuka">
-                        <p>Remember me</p>
-                    </div>
                     <button class="login-button" onclick="ingia()" name="login">Login</button>
                 </form>
             </div>

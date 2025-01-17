@@ -1,6 +1,9 @@
 <?php
 
     include "connection.php";
+
+    $message1 = "";
+    $message2 = "";
     
 
     if(isset($_POST['rev_send'])){
@@ -30,9 +33,44 @@
         $result = mysqli_query($db, $query);
 
         if($result){
-            echo "Review submitted successfully!";
+            $message1 .= "Thank you for your review!";
         }
         else{
-            echo "Error while submitting review!";
+            $message .= "Error while submitting review!";
         }
     }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="review.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | Review</title>
+</head>
+<body>
+    <div class="content">
+        <?php
+            if($message2 === ""){
+                echo 
+                    "
+                        <div class='message'>
+                            <img src='media/icons/check.png' class='check'>
+                            <p>$message1</p>
+                        </div>
+                    ";
+            }
+            else{
+                echo 
+                    "
+                        <div class='message'>
+                            <img src='media/icons/warning.png' class='check'>
+                            <p>$message1</p>
+                        </div>
+                    ";
+            }
+        ?>
+    </div>
+</body>
+</html>

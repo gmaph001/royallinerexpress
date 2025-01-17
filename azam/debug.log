@@ -1,0 +1,17 @@
+Headers:
+Array
+(
+    [Host] => royallinerexpress.ct.ws
+    [X-Forwarded-Proto] => https
+    [X-Real-IP] => 66.249.83.69
+    [X-Forwarded-For] => 66.249.83.69
+    [Connection] => close
+    [Accept-Language] => en-US
+    [Upgrade-Insecure-Requests] => 1
+    [Accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    [User-Agent] => Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)
+    [Accept-Encoding] => gzip, deflate, br
+    [Content-Length] => 0
+)
+Raw Body:
+

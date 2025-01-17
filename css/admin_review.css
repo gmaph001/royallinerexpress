@@ -1,0 +1,101 @@
+.content{
+    min-height: 80vh;
+    padding: 5vh 5vw;
+    background-color: rgb(255, 209, 178);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2vw;
+}
+.review-card{
+    background-image: linear-gradient(120deg, rgb(0, 0, 0), rgb(77, 0, 77), rgb(130, 0, 130));
+    padding: 3vh 2vw;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.441);
+    width: 25vw;
+    margin-top: 3vh;
+    height: max-content;
+}
+.review{
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.credentials{
+    margin-bottom: 3vh;
+    width: 100%;
+}
+.credentials p{
+    color: white;
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: left;
+}
+.address{
+    color: rgb(255, 102, 0);
+}
+.message{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.673);
+    padding: 3vh 2vw;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.482);
+    font-size: 14pt;
+    font-style: italic;
+}
+.status{
+    color: rgb(0, 217, 241);
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 3vh 0vw;
+}
+.btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post{
+    background-color: rgb(255, 102, 0);
+    padding: 5px 30px;
+    margin-bottom: 3vh;
+    font-size: 14pt;
+    font-weight: bold;
+    color: rgb(77, 0, 77);
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.post:hover{
+    background-color: black;
+    color: white;
+}
+@media(max-width: 950px){
+    .content{
+        grid-template-columns: 1fr 1fr;
+    }
+    .review-card{
+        width: 40vw;
+    }
+    .post{
+        padding: 5px 15vw;
+    }
+}
+@media(max-width: 600px){
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .review-card{
+        width: 80vw;
+        padding: 2vh 4vw;
+    }
+    .post{
+        padding: 5px 30vw;
+    }
+}
