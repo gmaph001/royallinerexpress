@@ -182,19 +182,72 @@
                         <div class='review_section'>
                             <h1>Here are some of reviews from our customers:</h1>
                             <div class='reviews'>";
-                                
+                                if($size5>3){
                                     for($i=$size5-1; $i>=$size5-3; $i--){
-                                        echo 
-                                            "
-                                                <div class='review'>
-                                                    <img src='media/icons/quotes.png' class='entry'>
-                                                    <p class='message'>
-                                                        $review[$i]
-                                                    </p>
-                                                    <img src='media/icons/quotes.png' class='exit'>
-                                                </div>
-                                            ";
+                                        if($review[$i] != NULL){
+                                            echo 
+                                                "
+                                                    <div class='review'>
+                                                        <img src='media/icons/quotes.png' class='entry'>
+                                                        <p class='message'>
+                                                            $review[$i]
+                                                        </p>
+                                                        <img src='media/icons/quotes.png' class='exit'>
+                                                    </div>
+                                                ";
+                                        }
                                     }
+                                }
+                                else if($size5<4){
+                                    if($size5 == 3){
+                                        for($i=$size5-1; $i>=$size5-3; $i--){
+                                            if($review[$i] != NULL){
+                                                echo 
+                                                    "
+                                                        <div class='review'>
+                                                            <img src='media/icons/quotes.png' class='entry'>
+                                                            <p class='message'>
+                                                                $review[$i]
+                                                            </p>
+                                                            <img src='media/icons/quotes.png' class='exit'>
+                                                        </div>
+                                                    ";
+                                            }
+                                        }
+                                    }
+                                    else if($size5 == 2){
+                                        for($i=$size5-1; $i>=$size5-2; $i--){
+                                            if($review[$i] != NULL){
+                                                echo 
+                                                    "
+                                                        <div class='review'>
+                                                            <img src='media/icons/quotes.png' class='entry'>
+                                                            <p class='message'>
+                                                                $review[$i]
+                                                            </p>
+                                                            <img src='media/icons/quotes.png' class='exit'>
+                                                        </div>
+                                                    ";
+                                            }
+                                        }
+                                    }
+                                    else if($size5 == 1){
+                                        for($i=$size5-1; $i>=$size5-1; $i--){
+                                            if($review[$i] != NULL){
+                                                echo 
+                                                    "
+                                                        <div class='review'>
+                                                            <img src='media/icons/quotes.png' class='entry'>
+                                                            <p class='message'>
+                                                                $review[$i]
+                                                            </p>
+                                                            <img src='media/icons/quotes.png' class='exit'>
+                                                        </div>
+                                                    ";
+                                            }
+                                        }
+                                    }
+                                }
                                 echo "
                             </div>
                         </div>

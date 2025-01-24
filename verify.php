@@ -35,27 +35,39 @@
         }
     }
 
-    // Initiate payment
-    list($response, $externalId) = azampay::mnocheckout($accountNumber, $amount, $currency, $provider);
+    $query2 = "SELECT * FROM passenger_info";
+    $result2 = mysqli_query($db, $query2);
 
-    // Check if the payment initiation was successful
-    if (isset($response->success) && $response->success) {
-        echo "Payment initiated successfully. Please wait for confirmation...";
-        // Redirect to callback handler
-        header("Location:azam/callback_url.php?externalId=$externalId&name=$name&email=$email&&bill=$billkey");
-    } else {
-        echo "Payment initiation failed. Please try again.";
+    if($result2){
+        for($i=0; $i<mysqli_num_rows($result2); $i++){
+            $row = mysqli_fetch_array($result2);
+
+            if($row['bill_id'] === $billkey){
+                $departure = $row['departure'];
+            }
+        }
     }
 
+    $query3 = "SELECT * FROM admin";
+    $result3 = mysqli_query($db, $query3);
 
-    // $query = "INSERT INTO billing(bill_name, phone, email, bill, bill_time, bill_date, bill_key) VALUES('$name', '$phone', '$email', '$total', '$time', '$date', '$billkey')";
-    // $result = mysqli_query($db, $query);
+    if($result3){
+        for($i=0; $i<mysqli_num_rows($result3); $i++){
+            $row = mysqli_fetch_array($result3);
 
+            if($row['office'] === $departure && $row['rank'] === "agent"){
+                $handler = $row['userkey'];
+                break;
+            }
+        }
+    }
 
+    $billquery = "INSERT INTO bill_notification(bill_key, bill_name, method, account_no, email, bill, bill_time, bill_date, handler_key) VALUES('$billkey', '$name', '$provider', '$accountNumber', '$email', '$amount', '$time', '$date', '$handler')";
+    $billresult = mysqli_query($db, $billquery);
 
-    // if($result){
-    //     echo "Bill registered!";
-    // }
-    // else{
-    //     echo "Error registering bill!";
-    // }
+    if($billresult){
+        echo "Bill sent successfully!";
+    }
+    else{
+        echo "Error while registering bill!";
+    }

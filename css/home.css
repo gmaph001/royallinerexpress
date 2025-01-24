@@ -113,7 +113,7 @@ a{
     display: none;
 }
 .about_us{
-    color: rgb(255, 102, 0);
+    color: rgb(250, 0, 0);
     font-size: 24pt;
     font-family: candara;
     text-align: center;
@@ -298,6 +298,22 @@ a{
     .kt_photo{
         width: 325px;
         height: 325px;
+    }
+    .reviews{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .review{
+        width: 70vw;
+        margin-bottom: 5vh;
+    }
+    .message{
+        width: 50vw;
+    }
+    .exit{
+        margin-left: 55vw;
     }
     @keyframes slideIn {
         from{
