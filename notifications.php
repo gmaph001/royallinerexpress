@@ -4,11 +4,13 @@
 
     $id = $_GET['id'];
 
+    $not_key = [];
     $date = [];
     $time = [];
     $msg = "Ticket Confirmation";
     $name = [];
     $not_no = [];
+    $status = [];
     $size = 0;
 
     $query = "SELECT * FROM admin";
@@ -21,6 +23,7 @@
             if($row['userkey'] === $id){
                 $photo = $row['photo'];
                 $rank = $row['rank'];
+                $notification = $row['unread'];
             }
         }
     }
@@ -33,10 +36,12 @@
             $row = mysqli_fetch_array($result2);
 
             if($id === $row['handler_key']){
+                $not_key[$size] = $row['notify_ID'];
                 $name[$size] = $row['bill_name'];
                 $date[$size] = $row['bill_date'];
                 $time[$size] = $row['bill_time'];
                 $not_no[$size] = $row['notify_ID'];
+                $status[$size] = $row['status'];
 
                 $size++;
             }
@@ -69,12 +74,22 @@
                 <h1>ROYAL LINER EXPRESS</h1>
                 <div class="horizontal_menu">
                     <?php
-                        echo 
-                            "
-                                <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'><p>1</p></a>
-                                <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
-                                <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
-                            ";
+                        if($notification == 0){
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
+                        else{
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'><p>$notification</p></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
                     ?>
                 </div>
             </div>
@@ -92,26 +107,49 @@
                 </div>
                 <div class="notify-content">
                     <?php
-                        if($size>0){
-                            for($i=$size-1; $i>=0; $i--){
-                                echo 
-                                    "
-                                        <a class='notification-message' href='notification_msg.html'>
-                                            <p><b>$name[$i]</b></p>
-                                            <p><b>$date[$i]</b></p>
-                                            <p><b>$msg</b></p>
-                                            <p><b>$time[$i]</b></p>
-                                        </a>
-                                    ";
-                            }
-                        }
-                        else{
+                        if($size == 0){
                             echo 
                                 "
                                     <a class='notification-message'>
                                         <center><p><b>You don't have any notifications for now!</b></p></center>
                                     </a>
                                 ";
+                        }
+                    ?>
+                    <h2>Unread</h2>
+                    <?php
+                        if($size>0){
+                            for($i=$size-1; $i>=0; $i--){
+                                if($status[$i] === "closed"){
+                                    echo 
+                                        "
+                                            <a class='notification-message' href='notification_msg.php?id=$id&&key=$not_key[$i]'>
+                                                <p><b>$name[$i]</b></p>
+                                                <p><b>$date[$i]</b></p>
+                                                <p><b>$msg</b></p>
+                                                <p><b>$time[$i]</b></p>
+                                            </a>
+                                        ";
+                                }
+                            }
+                        }
+                    ?>
+                    <h2>Read</h2>
+                    <?php
+                        if($size>0){
+                            for($i=$size-1; $i>=0; $i--){
+                                if($status[$i] === "opened"){
+                                    echo 
+                                        "
+                                            <a class='notification-message' href='notification_msg.php?id=$id&&key=$not_key[$i]'>
+                                                <p>$name[$i]</p>
+                                                <p>$date[$i]</p>
+                                                <p>$msg</p>
+                                                <p>$time[$i]</p>
+                                            </a>
+                                        ";
+                                }
+                            }
                         }
                         
                     ?>

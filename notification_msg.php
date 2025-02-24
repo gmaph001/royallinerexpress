@@ -1,3 +1,46 @@
+<?php
+
+    require "connection.php";
+    require "addr.php";
+
+    $id = $_GET['id'];
+    $key = $_GET['key'];
+
+    $query = "SELECT * FROM admin";
+    $result = mysqli_query($db, $query);
+
+    if($result){
+        for($i=0; $i<mysqli_num_rows($result); $i++){
+            $row = mysqli_fetch_array($result);
+
+            if($row['userkey'] === $id){
+                $photo = $row['photo'];
+                $rank = $row['rank'];
+                $notification = $row['unread'];
+            }
+        }
+    }
+
+    $query2 = "SELECT * FROM bill_notification";
+    $result2 = mysqli_query($db, $query2);
+
+    if($result2){
+        for($i=0; $i<mysqli_num_rows($result2); $i++){
+            $row = mysqli_fetch_array($result2);
+
+            if($key === $row['notify_ID']){
+                $billkey = $row['bill_key'];
+                $name = $row['bill_name'];
+                $method = $row['method'];
+                $number = $row['account_no'];
+                $bill = $row['bill'];
+                $date = $row['bill_date'];
+                $time = $row['bill_time'];
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +55,7 @@
     <div class="main">
         <div class="sidebar-all">
             <div class="main-cluster">
-                <iframe src="sidebar.html" class="sidebar"></iframe>
+                <?php echo "<iframe src='sidebar.php?id=$id' class='sidebar'></iframe>";?>
                 <img src="media/icons/close.png" class="icons head">
             </div>
         </div>
@@ -20,11 +63,25 @@
             <div class="navigation">
                 <img src="media/icons/menu.png" class="icons menu">
                 <h1>ROYAL LINER EXPRESS</h1>
-                <img src="media/icons/logo.png" class="logo">
                 <div class="horizontal_menu">
-                    <a href="notifications.html" class="notification" onmouseover="notifyfunc(1)" onmouseleave="notifyfunc(2)"><img src="media/icons/bell.png" class="icons notify"><p>1</p></a>
-                    <a href="account.html"><img src="media/images/profiles/IMG_20180819_121655.jpg" class="icons account"></a>
-                    <a href="login.html"><img src="media/icons/logout.png" class="icons"></a>
+                    <?php
+                        if($notification == 0){
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
+                        else{
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'><p>$notification</p></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
+                    ?>
                 </div>
             </div>
             <div class="content">
@@ -41,15 +98,21 @@
                 </div>
                 <div class="notify-content">
                     <div class="message-body">
-                        <div class="msg-title">
-                            <h1>Ticket Confirmation</h1>
-                        </div>
-                        <div class="msg-body">
-                            <p>Passenger No: <b>324567453</b> named: <b>GEORGE MAPHOLE</b> wants confirmation 
-                                for ticket payment of <b>Tshs. 40,000/=</b>.
-                            </p>
-                        </div>
-                        <a href="approve.php" class="approve">Confirmed</a>
+                        <?php
+                            echo 
+                                "
+                                    <div class='msg-title'>
+                                        <h1>Ticket Confirmation</h1>
+                                    </div>
+                                    <div class='msg-body'>
+                                        <p>Bill No: <b>$billkey</b> named: <b>$name</b> wants confirmation 
+                                            for ticket payment of <b>Tshs. $bill/=</b> requested on <b>$date</b> 
+                                            at <b>$time</b> paid via <b>$method</b>.
+                                        </p>
+                                    </div>
+                                    <a href='approve.php?id=$id&&key=$key' class='approve'>Confirmed</a>
+                                ";
+                        ?>
                     </div>
                 </div>
             </div>

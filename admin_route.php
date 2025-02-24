@@ -49,6 +49,7 @@
             if($id === $row['userkey']){
                 $photo = $row['photo'];
                 $rank = $row['rank'];
+                $notification = $row['unread'];
             }
         }
     }
@@ -109,12 +110,22 @@
                 <h1>ROYAL LINER EXPRESS</h1>
                 <div class="horizontal_menu">
                     <?php
-                        echo 
-                            "
-                                <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'><p>1</p></a>
-                                <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
-                                <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
-                            ";
+                        if($notification == 0){
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
+                        else{
+                            echo 
+                                "
+                                    <a href='notifications.php?id=$id' class='notification'onmouseover='notifyfunc(1)' onmouseleave='notifyfunc(2)'><img src='media/icons/bell.png' class='icons notify'><p>$notification</p></a>
+                                    <a href='account.php?id=$id'><img src='$photo' class='icons account'></a>
+                                    <a href='login.php'><img src='media/icons/logout.png' class='icons'></a>
+                                ";
+                        }
                     ?>
                 </div>
             </div>
