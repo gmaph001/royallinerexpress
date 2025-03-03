@@ -134,6 +134,7 @@
 
             if($result5){
                 echo "Admin Table updated successfully!";
+                header("location: payUp.php?key=$billkey");
             }
             else{
                 echo "Error while updating admin table!";

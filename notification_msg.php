@@ -89,11 +89,32 @@
                     <div class="title">
                         <h1>Notification</h1>
                     </div>
-                    <div class="notify-sidebar-body">
-                        <a class="notify-sidebar-header" href="notification.html">Ticket Mails</a>
-                        <a class="notify-sidebar-header">Agent Mails</a>
-                        <a class="notify-sidebar-header">Main Ag. Mails</a>
-                        <a class="notify-sidebar-header">CEO Mails</a>
+                    <div class='notify-sidebar-body'>
+                    <?php
+                        echo 
+                            "
+                                <a class='notify-sidebar-header' href='notifications.php?id=$id'>Ticket Mails</a>
+                                <a class='notify-sidebar-header'>Agent Mails</a>
+                                <a class='notify-sidebar-header'>Main Ag. Mails</a>
+                                <a class='notify-sidebar-header'>CEO Mails</a>
+                            ";
+                    ?>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown_btn">
+                        <img src="media/icons/dropdown.png" class="drop">
+                    </div>
+                    <div class="dropdown_menu">
+                        <?php
+                            echo 
+                                "
+                                    <a class='notify-sidebar-header' href='notifications.php?id=$id'>Ticket Mails</a>
+                                    <a class='notify-sidebar-header'>Agent Mails</a>
+                                    <a class='notify-sidebar-header'>Main Ag. Mails</a>
+                                    <a class='notify-sidebar-header'>CEO Mails</a>
+                                ";
+                        ?>
                     </div>
                 </div>
                 <div class="notify-content">
@@ -107,7 +128,7 @@
                                     <div class='msg-body'>
                                         <p>Bill No: <b>$billkey</b> named: <b>$name</b> wants confirmation 
                                             for ticket payment of <b>Tshs. $bill/=</b> requested on <b>$date</b> 
-                                            at <b>$time</b> paid via <b>$method</b>.
+                                            at <b>$time</b> paid via <b>$method</b> through <b>$number</b>.
                                         </p>
                                     </div>
                                     <a href='approve.php?id=$id&&key=$key' class='approve'>Confirmed</a>
@@ -123,4 +144,5 @@
     </div>
 </body>
 <script src="js/admin_navBar.js"></script>
+<script src="js/notifications.js"></script>
 </html>

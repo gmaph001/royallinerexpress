@@ -63,7 +63,7 @@
                                     $result6 = mysqli_query($db, $query6);
 
                                     if($result6){
-                                        header("location:notifications.php?id=$id");
+                                        header("location:notifications.php?id=$id");     
                                     }
                                     else{
                                         echo "Error while updating passenger info!";

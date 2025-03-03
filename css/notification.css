@@ -42,6 +42,9 @@
     padding: 2vh 2vw;
     background-color: white;
 }
+.dropdown{
+    display: none;
+}
 .notification-message{
     display: flex;
     align-items: center;
@@ -57,6 +60,7 @@
 .notification-message p{
     color: black;
     font-size: 14pt;
+    font-family: 'Times New Roman', Times, serif;
     background-color: transparent;
 }
 .message-body{
@@ -96,4 +100,94 @@
 .approve:hover{
     background-color: rgb(51, 0, 68);
     color: rgb(255, 102, 0);
+}
+@media(max-width: 900px){
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .notify-sidebar{
+        display: none;
+    }
+    .dropdown{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 98vw;
+    }
+    .dropdown_btn{
+        background-color: white;
+        font-size: 28pt;
+        font-weight: bold;
+        width: 100vw;
+        text-align: center;
+        background-color: rgb(255, 102, 0);
+    }
+    .drop{
+        width: 35px;
+        height: 30px;
+        z-index: 99;
+    }
+    .dropdown_menu{
+        display: none;
+    }
+    .vertical_menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 32vh;
+        width: 96vw;
+        padding: 2vh 2vw;
+        background-color: rgba(148, 0, 197, 0.444);
+        overflow-x: hidden;
+        z-index: 99;
+        animation: drop 1.5s ease-in-out normal;
+    }
+    .vertical_menu a{
+        width: 100vw;
+        padding: 1vh 2vw;
+        font-size: 14pt;
+        text-align: center;
+        animation: drop1 1.5s ease-in-out normal;
+    }
+    .notify-content{
+        width: 90vw;
+        padding: 2vh 5vw;
+    }
+    .notification-message p{
+        font-size: 12pt;
+    }
+    .message-body{
+        width: 80vw;
+    }
+    .msg-body{
+        width: 100%;
+    }
+    .approve{
+        width: 95%;
+    }
+    @keyframes drop {
+        from{
+            height: 0vh;
+        }
+        to{
+            height: 32vh;
+        }
+    }
+    @keyframes drop1 {
+        from{
+            color: rgba(148, 0, 197, 0.444);
+            padding: 0vh 0vw;
+            font-size: 0pt;
+        }
+        to{
+            color: white;
+            padding: 1vh 2vw;
+            font-size: 14pt;
+        }
+    }
 }
