@@ -1,27 +1,15 @@
 <?php
     require "connection.php";
+    require "addr.php";
 
     $id = $_GET['id'];
-    $income = 0;
-    $date = date('d/m/Y');
 
-    $query = "SELECT * FROM billing";
+    $query = "SELECT * FROM admin";
     $result = mysqli_query($db, $query);
 
     if($result){
         for($i=0; $i<mysqli_num_rows($result); $i++){
             $row = mysqli_fetch_array($result);
-
-            $income += $row['bill'];
-        }
-    }
-
-    $query2 = "SELECT * FROM admin";
-    $result2 = mysqli_query($db, $query2);
-
-    if($result2){
-        for($i=0; $i<mysqli_num_rows($result2); $i++){
-            $row = mysqli_fetch_array($result2);
 
             if($row['userkey'] === $id){
                 $photo = $row['photo'];
@@ -37,7 +25,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/admin_navBar.css">
-    <link rel="stylesheet" type="text/css" href="css/company.css">
+    <link rel="stylesheet" type="text/css" href="css/expense.css">
     <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
     <title>ROYAL LINER | Administrator | Drivers</title>
 </head>
@@ -85,7 +73,7 @@
                             <img src="media/icons/income.png" class="icons">
                             Income
                         </a>
-                        <?php echo "<a href='expense.php?id=$id' class='unga'>";?>
+                        <a href="company.html" class="unga">
                             <img src="media/icons/expenses.png" class="icons">
                             Expenses
                         </a>
@@ -93,50 +81,46 @@
                             <img src="media/icons/personel.png" class="icons">
                             Personel
                         </a>
-                        <?php echo "<a href='busphoto.php?id=$id' class='unga'>";?>
-                            <img src="media/icons/photo.png" class="icons">
-                            Photo
-                        </a>
                     </div>
                 </div>
                 <div class="content-body">
-                    <div class="date">
-                        <?php echo "<p>Data as per $date</p>";?>
-                    </div>
-                    <div class="content-data">
-                        <div class="income">
-                            <p class="title">Total Income</p>
-                            <?php echo "<p class='data'>Tshs. $income/=</p>";?>
-                        </div>
-                        <div class="expenses">
-                            <p class="title">Total Expenses</p>
-                            <p class="data">Tshs. 1,000,000/=</p>
-                        </div>
-                        <div class="profit">
-                            <p class="title">Total Profit</p>
-                            <p class="data">Tshs. 1,000,000/=</p>
-                        </div>
-                    </div>
-                    <div class="content-data">
-                        <div class="percent">
-                            <p class="title">% Profit</p>
-                            <p class="data profit-perce">+8%</p>
-                        </div>
-                        <div class="comment">
-                            <p class="title">Comment</p>
-                            <p class="data comment-data">"The Company is doing very well!"</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-right">
-                    <p class="right">Pending</p>
-                    <div class="list">
-                        <ol type="1">
-                            <li><a href="#">Fumbuka Limbu</a></li>
-                            <li><a href="#">Omar Mohammed</a></li>
-                            <li><a href="#">George Maphole</a></li>
-                        </ol>
-                    </div>
+                    <?php echo "<form action='subExp.php?id=$id' class='exp-form'>";?>
+                        <h1>Fuel Consumption</h1>
+                        <center><img src="media/icons/fuel.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Mafuta</legend>
+                            <div class="details">
+                                <input type="number" name="fuel" id="mafuta" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki2()" name="subFuel" class="submit">Submit Expenditure</button>
+                    </form>
+                    <?php echo "<form action='subExp.php?id=$id' class='exp-form'>";?>
+                        <h1>Garage Expenses</h1>
+                        <center><img src="media/icons/garage.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Gereji</legend>
+                            <div class="details">
+                                <input type="number" name="garage" id="gereji" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki3()" name="subGar" class="submit">Submit Expenditure</button>
+                    </form>
+                    <?php echo "<form action='subExp.php?id=$id' class='exp-form'>";?>
+                        <h1>Other Expenses</h1>
+                        <center><img src="media/icons/expenses.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Matumizi</legend>
+                            <div class="details">
+                                <input type="text" name="expName" id="expJina" placeholder="Expense Name">
+                                <input type="number" name="expense" id="matumizi" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki()" name="subExp" class="submit">Submit Expenditure</button>
+                    </form>
                 </div>
             </div>
             <div class="footer">
@@ -146,4 +130,36 @@
     </div>    
 </body>
 <script src="js/admin_navBar.js"></script>
+<script>
+    function hakiki(){
+        if(document.getElementById("expJina").value === ""){
+            alert("Tafadhali jaza matumizi!")
+            document.getElementById("expJina").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("expJina").style.border = "none";
+        }
+
+        if(document.getElementById("matumizi").value === ""){
+            alert("Tafadhali jaza kiasi cha matumizi!");
+            document.getElementById("matumizi").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("matumizi").style.border = "none";
+        }
+    }
+
+    function hakiki2(){
+        if(document.getElementById("mafuta").value === ""){
+            alert("Tafadhali jaza matumizi ya mafuta!");
+            document.getElementById("mafuta").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("mafuta").style.border = "none";
+        }
+    }
+</script>
 </html>

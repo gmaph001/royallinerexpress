@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/admin_navBar.css">
+    <link rel="stylesheet" type="text/css" href="css/expense.css">
+    <link rel="icon" type="image/X-icon" href="media/icons/logo.png">
+    <title>ROYAL LINER | Administrator | Drivers</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar-all">
+            <div class="main-cluster">
+                <iframe src="sidebar.html" class="sidebar"></iframe>
+                <img src="media/icons/close.png" class="icons head">
+            </div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <img src="media/icons/menu.png" class="icons menu">
+                <h1>ROYAL LINER EXPRESS</h1>
+                <img src="media/icons/logo.png" class="logo">
+                <div class="horizontal_menu">
+                    <a href="notifications.html" class="notification" onmouseover="notifyfunc(1)" onmouseleave="notifyfunc(2)"><img src="media/icons/bell.png" class="icons notify"><p>1</p></a>
+                    <a href="account.html"><img src="media/images/profiles/IMG_20180819_121655.jpg" class="icons account"></a>
+                    <a href="login.html"><img src="media/icons/logout.png" class="icons"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-sidebar">
+                    <div class="links">
+                        <a href="company.html" class="unga current">
+                            <img src="media/icons/home-icon.png" class="icons">
+                            Overview
+                        </a>
+                        <a href="company.html" class="unga">
+                            <img src="media/icons/income.png" class="icons">
+                            Income
+                        </a>
+                        <a href="company.html" class="unga">
+                            <img src="media/icons/expenses.png" class="icons">
+                            Expenses
+                        </a>
+                        <a href="company.html" class="unga">
+                            <img src="media/icons/personel.png" class="icons">
+                            Personel
+                        </a>
+                    </div>
+                </div>
+                <div class="content-body">
+                    <form class="exp-form">
+                        <h1>Fuel Consumption</h1>
+                        <center><img src="media/icons/fuel.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Mafuta</legend>
+                            <div class="details">
+                                <input type="number" name="fuel" id="mafuta" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki2()" name="subFuel" class="submit">Submit Expenditure</button>
+                    </form>
+                    <form class="exp-form">
+                        <h1>Garage Expenses</h1>
+                        <center><img src="media/icons/garage.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Gereji</legend>
+                            <div class="details">
+                                <input type="number" name="garage" id="gereji" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki3()" name="subGar" class="submit">Submit Expenditure</button>
+                    </form>
+                    <form class="exp-form">
+                        <h1>Other Expenses</h1>
+                        <center><img src="media/icons/expenses.png" class="exp-icon"></center>
+
+                        <fieldset>
+                            <legend>Matumizi</legend>
+                            <div class="details">
+                                <input type="text" name="expName" id="expJina" placeholder="Expense Name">
+                                <input type="number" name="expense" id="matumizi" placeholder="Expenditure">
+                            </div> 
+                        </fieldset>
+                        <button onclick="hakiki()" name="subExp" class="submit">Submit Expenditure</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <p>&COPY; ROYAL LINER EXPRESS 2025</p>
+            </div>
+        </div>
+    </div>    
+</body>
+<script src="js/admin_navBar.js"></script>
+<script>
+    function hakiki(){
+        if(document.getElementById("expJina").value === ""){
+            alert("Tafadhali jaza matumizi!")
+            document.getElementById("expJina").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("expJina").style.border = "none";
+        }
+
+        if(document.getElementById("matumizi").value === ""){
+            alert("Tafadhali jaza kiasi cha matumizi!");
+            document.getElementById("matumizi").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("matumizi").style.border = "none";
+        }
+    }
+
+    function hakiki2(){
+        if(document.getElementById("mafuta").value === ""){
+            alert("Tafadhali jaza matumizi ya mafuta!");
+            document.getElementById("mafuta").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("mafuta").style.border = "none";
+        }
+    }
+
+    function hakiki3(){
+        if(document.getElementById("gereji").value === ""){
+            alert("Tafadhali jaza matumizi ya mafuta!");
+            document.getElementById("gereji").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("gereji").style.border = "none";
+        }
+    }
+</script>
+</html>

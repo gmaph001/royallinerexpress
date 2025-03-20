@@ -1,0 +1,247 @@
+.content{
+    background-color: rgb(217, 224, 252);
+    min-height: 81vh;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.content-sidebar{
+    background-color: rgb(255, 102, 0);
+    width: 7vw;
+    border-radius: 0px 100px 0px 0px;
+    padding: 5vh 1vw 1vh 1vw;
+    min-height: 81vh;
+}
+h1{
+    color: white;
+}
+.links{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.unga{
+    width: 95%;
+    margin-top: 1vh;
+    font-size: 14pt;
+    background-color: rgb(255, 102, 0);
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.unga:hover{
+    background-color: rgb(2, 0, 105);
+}
+.current{
+    border-left: 5px solid rgb(58, 0, 95);
+}
+.content-body{
+    width: 60vw;
+    padding: 2vh 2vw;
+}
+.date{
+    margin-left: 40vw;
+    background-color: whitesmoke;
+    padding: 1vh 2vw;
+    border-left: 5px solid yellow;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+.content-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5vh;
+    margin-top: 2vh;
+}
+.income{
+    background-color: whitesmoke;
+    border-left: 5px solid green;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    font-size: 14pt;
+    cursor: pointer;
+    box-shadow: 0px 0px 7px 7px rgba(146, 146, 146, 0.378);
+}
+.income:hover{
+    background-color: rgb(0, 187, 0);
+    color: white;
+}
+.expenses{
+    background-color: whitesmoke;
+    border-left: 5px solid red;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    cursor: pointer;
+    box-shadow: 0px 0px 7px 7px rgba(146, 146, 146, 0.378);
+}
+.expenses:hover{
+    background-color: red;
+    color: white;
+}
+.profit{
+    background-color: whitesmoke;
+    border-left: 5px solid blue;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    cursor: pointer;
+    box-shadow: 0px 0px 7px 7px rgba(146, 146, 146, 0.378);
+}
+.profit:hover{
+    background-color: blue;
+    color: white;
+}
+.title{
+    font-weight: bold;
+    font-size: 16pt;
+    margin-bottom: 1vh;
+    display: block;
+    animation: show1 2s ease-in-out normal;
+}
+.data{
+    font-size: 18pt;
+    font-family: 'Times New Roman', Times, serif;
+    display: block;
+    animation: show2 2s ease-in-out normal;
+}
+.percent{
+    background-color: whitesmoke;
+    border-left: 5px solid rgb(26, 255, 0);
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    box-shadow: 0px 0px 7px 7px rgba(146, 146, 146, 0.378);
+}
+.profit-perce{
+    font-size: 26pt;
+    animation: show3 2s ease-in-out normal;
+}
+.comment{
+    background-color: whitesmoke;
+    border-left: 5px solid orange;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    box-shadow: 0px 0px 7px 7px rgba(146, 146, 146, 0.378);
+}
+.comment-data{
+    font-style: italic;
+    font-size: 18pt;
+    background-color:rgba(26, 255, 0, 0.496);
+}
+.content-right{
+    width: 15vw;
+    background-color: rgba(248, 199, 167, 0.6);
+    min-height: 81vh;
+    border-radius: 10px 0px 0px 10px;
+    padding: 5vh 2vw;
+}
+.right{
+    color: red;
+    text-align: center;
+    font-size: 22pt;
+    font-weight: bold;
+}
+.list{
+    font-size: 14pt;
+}
+ol li{
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    margin-top: 2vh;
+    border-radius: 5px;
+    width: 12vw;
+}
+ol li:hover{
+    background-color: rgb(255, 102, 0);
+    padding: 7px 15px;
+    width: 14vw;
+}
+ol li a{
+    color: black;
+    font-size: 14pt;
+}
+ol li a:hover{
+    color: white;
+    font-weight: bold;
+}
+.graphs{
+    width: 80%;
+    background-color: rgb(179, 179, 243);
+    margin-top: 3vh;
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 3px rgba(122, 122, 122, 0.436);
+}
+.bar-graph{
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    padding: 0vh 2vw 0vh 2vw;
+    display: flex;
+    flex-direction: row;
+    align-items: last baseline;
+    justify-content: space-between;
+    height: 200px;
+}
+.bars{
+    display: flex;
+    flex-direction: row;
+    align-items: last baseline;
+    justify-content: center;
+}
+.income-bar{
+    background-color: darkgreen;
+    color: darkgreen;
+    width: 20px;
+    animation: panda 4s ease-in-out normal;
+}
+.profit-bar{
+    background-color: blue;
+    color: blue;
+    width: 20px;
+    animation: panda2 4s ease-in-out normal;
+}
+@keyframes show1 {
+    from{
+        font-size: 0pt;
+    }
+    to{
+        font-size: 16pt;
+    }
+}
+@keyframes show2 {
+    from{
+        font-size: 0pt;
+    }
+    to{
+        font-size: 18pt;
+    }
+}
+@keyframes show3 {
+    from{
+        font-size: 0pt;
+    }
+    to{
+        font-size: 26pt;
+    }
+}
+@keyframes panda {
+    from{
+        background-color: rgb(179, 179, 243);
+    }
+    to{
+        background-color: darkgreen;
+    }
+}
+@keyframes panda2 {
+    from{
+        background-color: rgb(179, 179, 243);
+    }
+    to{
+        background-color: blue;
+    }
+}
