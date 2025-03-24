@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2025 at 12:39 PM
+-- Generation Time: Mar 24, 2025 at 10:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -179,6 +179,36 @@ INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `ac`, `tv`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chk_photos`
+--
+
+CREATE TABLE `chk_photos` (
+  `photo_ID` int(11) NOT NULL,
+  `photo_name` varchar(500) NOT NULL,
+  `photo_key` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chk_photos`
+--
+
+INSERT INTO `chk_photos` (`photo_ID`, `photo_name`, `photo_key`) VALUES
+(1, 'media/images/01.jpg', 283888046),
+(3, 'media/images/02.jpg', 438723130),
+(4, 'media/images/03.jpg', 294688450),
+(5, 'media/images/04.jpg', 613147080),
+(6, 'media/images/05.jpg', 276356580),
+(7, 'media/images/06.jpg', 342243417),
+(8, 'media/images/07.jpg', 495696937),
+(9, 'media/images/08.jpg', 479229548),
+(10, 'media/images/09.jpg', 386408307),
+(11, 'media/images/10.jpg', 186052298),
+(12, 'media/images/11.jpg', 448336934),
+(13, 'media/images/background.jpg', 911500065);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `driver_info`
 --
 
@@ -213,6 +243,20 @@ INSERT INTO `driver_info` (`driver_ID`, `firstname`, `secondname`, `lastname`, `
 (3, 'IBRAHIM', 'ABDALLAH', 'MWENDA', 'ibra_dullah', '1990-02-25', 'male', 'married', '0755446688', 'ibradullah@gmail.com', '08 Mbwezeleni, Mianzini, Temeke, Dar-es-Salaam', '2025-01-06', 2147483647, 10, 'media/images/drivers/MacOS Hello 4K.jpeg', 'T896ELY', 'TANGA', '2025-01-06', 'active', 409913923),
 (4, 'Kassim', 'Said', 'Kassim', 'kassim_said', '1987-03-29', 'male', 'married', '0742365412', 'kassim1987@gmail.com', '08 Mbwezeleni, Mianzini, Temeke, Dar-es-Salaam', '2025-01-06', 2147483647, 12, 'media/images/drivers/peakpx (6).jpg', '', '', '0000-00-00', 'active', 593707976),
 (5, 'George', 'Godson', 'Maphole', 'Gmaph001', '2003-05-26', 'male', 'single', '0748554514', 'gmaph001@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', '2025-01-06', 987456321, 5, 'media/images/drivers/IMG_20180819_121655.jpg', 'T879EGJ', 'TANGA', '2025-03-03', 'active', 434993638);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `expenses`
+--
+
+CREATE TABLE `expenses` (
+  `exp_ID` int(11) NOT NULL,
+  `exp_name` varchar(500) NOT NULL,
+  `expense` int(11) NOT NULL,
+  `exp_date` date NOT NULL,
+  `exp_key` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -291,8 +335,27 @@ INSERT INTO `performance` (`perform_id`, `user_ID`, `income`, `tickets`, `bill_k
 
 CREATE TABLE `photos` (
   `photo_ID` int(11) NOT NULL,
-  `photo_name` varchar(500) NOT NULL
+  `photo_name` varchar(500) NOT NULL,
+  `photo_key` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`photo_ID`, `photo_name`, `photo_key`) VALUES
+(1, 'media/images/01.jpg', 283888046),
+(2, 'media/images/02.jpg', 438723130),
+(3, 'media/images/03.jpg', 294688450),
+(4, 'media/images/04.jpg', 613147080),
+(5, 'media/images/05.jpg', 276356580),
+(6, 'media/images/06.jpg', 342243417),
+(7, 'media/images/07.jpg', 495696937),
+(8, 'media/images/08.jpg', 479229548),
+(9, 'media/images/09.jpg', 386408307),
+(10, 'media/images/10.jpg', 186052298),
+(11, 'media/images/11.jpg', 448336934),
+(12, 'media/images/background.jpg', 911500065);
 
 -- --------------------------------------------------------
 
@@ -396,10 +459,22 @@ ALTER TABLE `bus_info`
   ADD PRIMARY KEY (`bus_ID`);
 
 --
+-- Indexes for table `chk_photos`
+--
+ALTER TABLE `chk_photos`
+  ADD PRIMARY KEY (`photo_ID`);
+
+--
 -- Indexes for table `driver_info`
 --
 ALTER TABLE `driver_info`
   ADD PRIMARY KEY (`driver_ID`);
+
+--
+-- Indexes for table `expenses`
+--
+ALTER TABLE `expenses`
+  ADD PRIMARY KEY (`exp_ID`);
 
 --
 -- Indexes for table `passenger_info`
@@ -466,10 +541,22 @@ ALTER TABLE `bus_info`
   MODIFY `bus_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `chk_photos`
+--
+ALTER TABLE `chk_photos`
+  MODIFY `photo_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `driver_info`
 --
 ALTER TABLE `driver_info`
   MODIFY `driver_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `expenses`
+--
+ALTER TABLE `expenses`
+  MODIFY `exp_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `passenger_info`
@@ -487,7 +574,7 @@ ALTER TABLE `performance`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `photo_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `photo_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `reviews`
