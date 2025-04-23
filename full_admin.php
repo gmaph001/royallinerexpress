@@ -11,6 +11,7 @@
         $secondname = $_POST['secondname'];
         $lastname = $_POST['lastname'];
         $birthdate = $_POST['birthdate'];
+        $office = $_POST['office'];
         $phone = $_POST['phone'];
         $gender = $_POST['gender'];
         $marriage = $_POST['marry'];
@@ -45,7 +46,7 @@
             $row = mysqli_fetch_array($result0);
 
             if($id === $row['userkey']){
-                $query = "UPDATE admin SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', birthdate = '$birthdate', gender = '$gender', marital_status = '$marriage', phone_no = '$phone', residential = '$residential', rank = '$rank', reg_date = '$reg_date', security = '$ip' WHERE userkey = '$id'";
+                $query = "UPDATE admin SET firstname = '$firstname', secondname = '$secondname', lastname = '$lastname', birthdate = '$birthdate', gender = '$gender', marital_status = '$marriage', phone_no = '$phone', residential = '$residential', rank = '$rank', reg_date = '$reg_date', office = '$office', security = '$ip' WHERE userkey = '$id'";
                 $result = mysqli_query($db, $query);
 
                 if($result){

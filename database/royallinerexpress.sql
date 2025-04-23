@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2025 at 10:02 AM
+-- Generation Time: Apr 23, 2025 at 07:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,11 +58,12 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_ID`, `username`, `password`, `firstname`, `secondname`, `lastname`, `birthdate`, `gender`, `marital_status`, `phone_no`, `email`, `residential`, `rank`, `photo`, `reg_date`, `office`, `confirmkey`, `OTP`, `userkey`, `security`, `notifications`, `unread`) VALUES
 (1, 'gmaph__001', 'SRSS14552', 'GEORGE', 'GODSON', 'MAPHOLE', '2005-03-26', 'male', 'single', '0626303582', 'gmaph001@gmail.com', '08 Mbwezeleni, Mianzini, Temeke, Dar-es-Salaam', 'manager', 'media/images/profiles/wallpaperflare.com_wallpaper (3).jpg', '2024-12-24', 'DAR ES SALAAM', '440600', 0, 975725201, '::1', 0, 0),
-(2, 'BMosha', 'MOSHA1978', 'BERTHA', 'ISRAEL', 'MOSHA', '1979-08-12', 'female', 'single', '0712121820', 'bettymosha1978@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'agent', 'media/images/profiles/wallpaperflare-cropped.jpg', '2024-12-24', 'DAR ES SALAAM', '305953', 0, 502548951, '::1', 2, 0),
+(2, 'BMosha', 'MOSHA1978', 'BERTHA', 'ISRAEL', 'MOSHA', '1979-08-12', 'female', 'single', '0712121820', 'bettymosha1978@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'agent', 'media/images/profiles/wallpaperflare-cropped.jpg', '2024-12-24', 'DAR ES SALAAM', '305953', 0, 502548951, '::1', 3, 0),
 (3, 'AMosha', 'MOSHA1968', 'AGNES', 'ISRAEL', 'MOSHA', '1968-01-01', 'female', 'single', '0627061101', 'moshaagnes1968@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'main', 'media/images/profiles/MacOS Hello 4K.jpeg', '2024-12-24', 'DAR ES SALAAM', '666300', 0, 535600963, '::1', 0, 0),
 (6, 'eric_hashim', 'eric_hashim', 'ERIC', 'HASHIM', 'MLOSO', '2003-12-25', 'male', 'divorced', '0656456585', 'ericmloso@gmail.com', 'Mbagala, Dar es Salaam', 'agent', 'media/images/profiles/wallpaperflare.com_wallpaper.jpg', '2025-02-16', 'DAR ES SALAAM', '468240', 0, 754287625, '::1', 2, 0),
 (7, '._muhy', 'muhy_marc', 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '2006-06-05', 'female', 'married', '0748551122', 'muhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-02-16', 'DAR ES SALAAM', '190983', 0, 971082350, '::1', 2, 0),
-(8, 'suhy', 'suhayma_suleiman', 'SUHAYMA', 'SULEIMAN', 'SALEH', '2006-03-14', 'female', 'single', '0747484945', 'suhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media/images/profiles/MacOS Hello 4K.jpeg', '2025-02-16', 'DAR ES SALAAM', '561562', 0, 868045784, '::1', 2, 0);
+(8, 'suhy', 'suhayma_suleiman', 'SUHAYMA', 'SULEIMAN', 'SALEH', '2006-03-14', 'female', 'single', '0747484945', 'suhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media/images/profiles/MacOS Hello 4K.jpeg', '2025-02-16', 'DAR ES SALAAM', '561562', 0, 868045784, '::1', 2, 0),
+(9, 'CMakule', 'MAKULE1996', 'CALVIN', 'GODLISTEN', 'MAKULE', '1996-03-27', 'male', 'married', '0719656591', 'gmaph001@gmail.com', 'Mbande, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-04-19', 'TANGA', '601902', 0, 758307573, '::1', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -128,9 +129,10 @@ INSERT INTO `bill_notification` (`notify_ID`, `bill_key`, `bill_name`, `method`,
 (4, 948471829, 'Calvin Makule', 'Tigo', '0719656591', 'gmaph001@gmail.com', 105000, '17:03', '2025-03-01', 868045784, 'opened'),
 (5, 636087282, 'albert kayombo', 'Halopesa', '0624417781', 'albertkayombo551@gmail.com', 160000, '12:03', '2025-03-02', 502548951, 'opened'),
 (6, 185620875, 'Omar', 'Airtel', '0788719932', 'matumboomar45@gmail.com', 560000, '08:03', '2025-03-03', 754287625, 'opened'),
-(9, 727113473, 'Joshua', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 120000, '14:03', '2025-03-03', 0, 'closed'),
 (10, 596218984, 'Joshua John', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 210000, '15:03', '2025-03-03', 971082350, 'opened'),
-(11, 993121065, 'edmund komba', 'Tigo', '0656144795', 'najifunza@gmail.com', 40000, '15:03', '2025-03-03', 868045784, 'opened');
+(11, 993121065, 'edmund komba', 'Tigo', '0656144795', 'najifunza@gmail.com', 40000, '15:03', '2025-03-03', 868045784, 'opened'),
+(12, 312818074, 'George Maphole', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 80000, '17:04', '2025-04-19', 502548951, 'opened'),
+(13, 398476200, 'Neema Mafole', 'Halopesa', '0626303582', 'gmaph001@gmail.com', 120000, '19:04', '2025-04-19', 758307573, 'opened');
 
 -- --------------------------------------------------------
 
@@ -163,9 +165,9 @@ CREATE TABLE `bus_info` (
 --
 
 INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `ac`, `tv`, `refreshments`, `charging`, `wifi`, `toilet`, `route_ID`, `filled`, `confirmation`, `position`, `op_date`, `status`) VALUES
-(1, 'T879EJM', 57, 'VIP A', 40000, NULL, 'available', 'available', 'available', 'available', 'available', 2, 0, NULL, 'TANGA', '2025-01-25', 'available'),
+(1, 'T879EJM', 57, 'VIP A', 40000, NULL, 'available', 'available', 'available', 'available', 'available', 2, 3, NULL, 'TANGA', '2025-01-25', 'available'),
 (2, 'T879EGJ', 57, 'VIP A', 40000, NULL, 'available', 'available', 'available', 'available', 'available', 2, 6, NULL, 'TANGA', '2025-03-04', 'available'),
-(4, 'T678DZT', 51, 'VIP B', 40000, NULL, 'available', 'available', 'available', NULL, 'available', 1, 0, NULL, 'DAR ES SALAAM', '2025-01-07', 'available'),
+(4, 'T678DZT', 51, 'VIP B', 40000, NULL, 'available', 'available', 'available', NULL, 'available', 1, 2, NULL, 'DAR ES SALAAM', '2025-01-07', 'available'),
 (5, 'T675EBM', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'TANGA', '2025-01-07', 'available'),
 (11, 'T876EJS', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 1, 3, NULL, 'DAR ES SALAAM', '2025-01-08', 'available'),
 (12, 'T564EAC', 51, 'LUXURY', 35000, NULL, 'available', 'available', NULL, NULL, NULL, 1, 0, NULL, 'DAR ES SALAAM', '2025-01-08', 'available'),
@@ -292,7 +294,12 @@ INSERT INTO `passenger_info` (`passenger_ID`, `firstname`, `secondname`, `lastna
 (4, 'Omar', 'Mohammed', 'Matumbo', 'DAR ES SALAAM', 'MBEYA', 'LUXURY', 70000, 'T678EAZ', 2, 'paid', '2025-03-03', 134589163, 596218984),
 (5, 'Innocent', 'Mathias', 'Ngowi', 'DAR ES SALAAM', 'MBEYA', 'LUXURY', 70000, 'T678EAZ', 27, 'paid', '2025-03-03', 762051956, 596218984),
 (6, 'Joshua', 'John', 'Martin', 'DAR ES SALAAM', 'MBEYA', 'LUXURY', 70000, 'T678EAZ', 29, 'paid', '2025-03-03', 453687133, 596218984),
-(7, 'edmund', 'Edmun', 'komba', 'DAR ES SALAAM', 'ROMBO', 'LUXURY', 40000, 'T657DZZ', 32, 'paid', '2025-03-03', 502004465, 993121065);
+(7, 'edmund', 'Edmun', 'komba', 'DAR ES SALAAM', 'ROMBO', 'LUXURY', 40000, 'T657DZZ', 32, 'paid', '2025-03-03', 502004465, 993121065),
+(8, 'GEORGE', 'GODSON', 'MAPHOLE', 'DAR ES SALAAM', 'TANGA', 'VIP B', 40000, 'T678DZT', 14, 'paid', '2025-04-20', 777969859, 312818074),
+(9, 'AGNES', 'ISRAEL', 'MOSHA', 'DAR ES SALAAM', 'TANGA', 'VIP B', 40000, 'T678DZT', 23, 'paid', '2025-04-20', 983777792, 312818074),
+(10, 'BERTHA', 'ISRAEL', 'MOSHA', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 13, 'paid', '2025-04-20', 186007992, 398476200),
+(11, 'NEEMA', 'GODSON', 'MAFOLE', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 24, 'paid', '2025-04-20', 119221927, 398476200),
+(12, 'MOHAMMED', 'SULTAN', 'MOHAMMED', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 29, 'paid', '2025-04-20', 968539968, 398476200);
 
 -- --------------------------------------------------------
 
@@ -379,7 +386,7 @@ CREATE TABLE `reviews` (
 INSERT INTO `reviews` (`review_ID`, `name`, `email`, `message`, `status`, `reviewkey`) VALUES
 (1, 'George Maphole', 'gmaph001@gmail.com', 'It is a good system.', ' not approved', 381338465),
 (2, 'CALVIN MAKULE', 'gmaph001@gmail.com', 'It\'s a wonderful system.', ' not approved', 686197198),
-(3, 'Innocent Mathias', 'omar01@gmail.com', 'It is a wonderful system with the best UI and functionality. Big up guys!', ' not approved', 273581834),
+(3, 'Innocent Mathias', 'omar01@gmail.com', 'It is a wonderful system with the best UI and functionality. Big up guys!', 'approved', 273581834),
 (4, 'Omar Mohammed', 'innomatty@gmail.com', 'It is the worst system do far!', ' not approved', 446782280);
 
 -- --------------------------------------------------------
@@ -520,7 +527,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `billing`
@@ -532,7 +539,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `bill_notification`
 --
 ALTER TABLE `bill_notification`
-  MODIFY `notify_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `notify_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `bus_info`
@@ -562,7 +569,7 @@ ALTER TABLE `expenses`
 -- AUTO_INCREMENT for table `passenger_info`
 --
 ALTER TABLE `passenger_info`
-  MODIFY `passenger_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `passenger_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `performance`

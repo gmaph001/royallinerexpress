@@ -73,6 +73,16 @@
             document.getElementById("phone").style.border = "none";
         }
 
+        if(document.more.office.value === "none"){
+            document.getElementById("busalert").innerHTML = alertmsg;
+            document.getElementById("bus").style.border = "2px solid red";
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("busalert").innerHTML = "";
+            document.getElementById("bus").style.border = "none";
+        }
+
         if(document.more.gender.value === "none"){
             document.getElementById("genderalert").innerHTML = alertmsg;
             document.getElementById("gender").style.border = "2px solid red";
