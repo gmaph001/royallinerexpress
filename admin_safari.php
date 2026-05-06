@@ -1,6 +1,8 @@
 <?php
 
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $from = $_POST['depart'];
     $to = $_POST['destination'];

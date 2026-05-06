@@ -1,6 +1,7 @@
 <?php
-    require "connection.php";
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $departure = $_GET['from'];
     $destination = $_GET['to'];
@@ -22,7 +23,6 @@
 
     $day = intval($day);
     
-    $route_ID;
 
     $bus_no = [];
     $class = [];

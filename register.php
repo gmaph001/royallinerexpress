@@ -7,8 +7,7 @@
     $date = $_GET['date'];
     $bus_no = $_GET['bus'];
     $seat = $_GET['seats'];
-    $class;
-    $fare;
+    
 
     $k = 0;
 

@@ -2,6 +2,7 @@
 
     include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $id = $_GET['id'];
 
@@ -15,9 +16,10 @@
         if($check){
             for($i=0; $i<mysqli_num_rows($check); $i++){
                 $row = mysqli_fetch_array($check);
-
+                $hash = $row['password'];
                 if($row['userkey'] === $id){
-                    if($row['password'] === $oldpassword){
+                    if(password_verify($oldpassword, $hash)){
+                        $newpassword = password_hash($newpassword, PASSWORD_DEFAULT);
                         $query = "UPDATE admin SET password = '$newpassword' WHERE userkey = '$id'";
                         $result = mysqli_query($db, $query);
 

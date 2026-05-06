@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2025 at 07:46 AM
+-- Generation Time: May 06, 2026 at 05:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,13 +57,13 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_ID`, `username`, `password`, `firstname`, `secondname`, `lastname`, `birthdate`, `gender`, `marital_status`, `phone_no`, `email`, `residential`, `rank`, `photo`, `reg_date`, `office`, `confirmkey`, `OTP`, `userkey`, `security`, `notifications`, `unread`) VALUES
-(1, 'gmaph__001', 'SRSS14552', 'GEORGE', 'GODSON', 'MAPHOLE', '2005-03-26', 'male', 'single', '0626303582', 'gmaph001@gmail.com', '08 Mbwezeleni, Mianzini, Temeke, Dar-es-Salaam', 'manager', 'media/images/profiles/wallpaperflare.com_wallpaper (3).jpg', '2024-12-24', 'DAR ES SALAAM', '440600', 0, 975725201, '::1', 0, 0),
-(2, 'BMosha', 'MOSHA1978', 'BERTHA', 'ISRAEL', 'MOSHA', '1979-08-12', 'female', 'single', '0712121820', 'bettymosha1978@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'agent', 'media/images/profiles/wallpaperflare-cropped.jpg', '2024-12-24', 'DAR ES SALAAM', '305953', 0, 502548951, '::1', 3, 0),
-(3, 'AMosha', 'MOSHA1968', 'AGNES', 'ISRAEL', 'MOSHA', '1968-01-01', 'female', 'single', '0627061101', 'moshaagnes1968@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'main', 'media/images/profiles/MacOS Hello 4K.jpeg', '2024-12-24', 'DAR ES SALAAM', '666300', 0, 535600963, '::1', 0, 0),
-(6, 'eric_hashim', 'eric_hashim', 'ERIC', 'HASHIM', 'MLOSO', '2003-12-25', 'male', 'divorced', '0656456585', 'ericmloso@gmail.com', 'Mbagala, Dar es Salaam', 'agent', 'media/images/profiles/wallpaperflare.com_wallpaper.jpg', '2025-02-16', 'DAR ES SALAAM', '468240', 0, 754287625, '::1', 2, 0),
-(7, '._muhy', 'muhy_marc', 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '2006-06-05', 'female', 'married', '0748551122', 'muhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-02-16', 'DAR ES SALAAM', '190983', 0, 971082350, '::1', 2, 0),
-(8, 'suhy', 'suhayma_suleiman', 'SUHAYMA', 'SULEIMAN', 'SALEH', '2006-03-14', 'female', 'single', '0747484945', 'suhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media/images/profiles/MacOS Hello 4K.jpeg', '2025-02-16', 'DAR ES SALAAM', '561562', 0, 868045784, '::1', 2, 0),
-(9, 'CMakule', 'MAKULE1996', 'CALVIN', 'GODLISTEN', 'MAKULE', '1996-03-27', 'male', 'married', '0719656591', 'gmaph001@gmail.com', 'Mbande, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-04-19', 'TANGA', '601902', 0, 758307573, '::1', 2, 0);
+(1, 'gmaph__001', '$2y$10$zis1qJ9IxdKLZk1i0WoEsueqbKrXK4mIWC/TDjKOEY/0WstSeh3AC', 'GEORGE', 'GODSON', 'MAPHOLE', '2005-03-26', 'male', 'single', '0626303582', 'gmaph001@gmail.com', '08 Mbwezeleni, Mianzini, Temeke, Dar-es-Salaam', 'manager', 'media/images/profiles/wallpaperflare.com_wallpaper (3).jpg', '2024-12-24', 'DAR ES SALAAM', '440600', 0, 975725201, '::1', 0, 0),
+(2, 'BMosha', '$2y$10$N5RMR60Rdb3loO86/a6IoOBJUHvV1rWRdZA9C9fFcwY4CPx88BdJO', 'BERTHA', 'ISRAEL', 'MOSHA', '1979-08-12', 'female', 'single', '0712121820', 'bettymosha1978@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'agent', 'media/images/profiles/wallpaperflare-cropped.jpg', '2024-12-24', 'DAR ES SALAAM', '305953', 0, 502548951, '::1', 3, 0),
+(3, 'AMosha', '$2y$10$he3i7yIwmJB5J71gUbIvYu0ITeDxVl2xtZIAw56EozU4Dn0SJuXr2', 'AGNES', 'ISRAEL', 'MOSHA', '1968-01-01', 'female', 'single', '0627061101', 'moshaagnes1968@gmail.com', 'Mbwezeleni, Mianzini, Temeke, Daresalaam', 'main', 'media/images/profiles/MacOS Hello 4K.jpeg', '2024-12-24', 'DAR ES SALAAM', '666300', 0, 535600963, '::1', 0, 0),
+(6, 'eric_hashim', '$2y$10$efO.97XSxJpGNFapLhF/uumggdunbNQk8j1hn/5BELU.6MHAOIw6O', 'ERIC', 'HASHIM', 'MLOSO', '2003-12-25', 'male', 'divorced', '0656456585', 'ericmloso@gmail.com', 'Mbagala, Dar es Salaam', 'agent', 'media/images/profiles/wallpaperflare.com_wallpaper.jpg', '2025-02-16', 'DAR ES SALAAM', '468240', 0, 754287625, '::1', 3, 0),
+(7, '._muhy', '$2y$10$pVzKgwZZBIqKtj7Smi0jVueAJEKlM/aGprKsykvP0sQkvyCYzD9d.', 'MUHADDITHA', 'YUSUPH', 'SULEIMAN', '2006-06-05', 'female', 'married', '0748551122', 'muhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-02-16', 'DAR ES SALAAM', '190983', 0, 971082350, '::1', 2, 0),
+(8, 'suhy', '$2y$10$9DkM/AOJhbAcOZvOs7gEDO3V4fW3kC6KePRVsx5meOWhKYi2JPKBe', 'SUHAYMA', 'SULEIMAN', 'SALEH', '2006-03-14', 'female', 'single', '0747484945', 'suhy@gmail.com', 'Magomeni, Dar es Salaam', 'agent', 'media/images/profiles/MacOS Hello 4K.jpeg', '2025-02-16', 'DAR ES SALAAM', '561562', 0, 868045784, '::1', 2, 0),
+(9, 'CMakule', '$2y$10$2vVeX5tNKg40YiFQi5uwCeRSdVy4DGBf0kcYDuEgoO9e7SV27mjuK', 'CALVIN', 'GODLISTEN', 'MAKULE', '1996-03-27', 'male', 'married', '0719656591', 'gmaph001@gmail.com', 'Mbande, Dar es Salaam', 'agent', 'media\\images\\profiles\\profile-user.png', '2025-04-19', 'TANGA', '601902', 0, 758307573, '::1', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,8 @@ INSERT INTO `bill_notification` (`notify_ID`, `bill_key`, `bill_name`, `method`,
 (10, 596218984, 'Joshua John', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 210000, '15:03', '2025-03-03', 971082350, 'opened'),
 (11, 993121065, 'edmund komba', 'Tigo', '0656144795', 'najifunza@gmail.com', 40000, '15:03', '2025-03-03', 868045784, 'opened'),
 (12, 312818074, 'George Maphole', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 80000, '17:04', '2025-04-19', 502548951, 'opened'),
-(13, 398476200, 'Neema Mafole', 'Halopesa', '0626303582', 'gmaph001@gmail.com', 120000, '19:04', '2025-04-19', 758307573, 'opened');
+(13, 398476200, 'Neema Mafole', 'Halopesa', '0626303582', 'gmaph001@gmail.com', 120000, '19:04', '2025-04-19', 758307573, 'opened'),
+(15, 710533023, 'George Maphole', 'Mpesa', '0748554514', 'gmaph001@gmail.com', 80000, '11:01', '2026-01-28', 754287625, 'opened');
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,7 @@ CREATE TABLE `bus_info` (
 INSERT INTO `bus_info` (`bus_ID`, `bus_no`, `seats`, `class`, `fare`, `ac`, `tv`, `refreshments`, `charging`, `wifi`, `toilet`, `route_ID`, `filled`, `confirmation`, `position`, `op_date`, `status`) VALUES
 (1, 'T879EJM', 57, 'VIP A', 40000, NULL, 'available', 'available', 'available', 'available', 'available', 2, 3, NULL, 'TANGA', '2025-01-25', 'available'),
 (2, 'T879EGJ', 57, 'VIP A', 40000, NULL, 'available', 'available', 'available', 'available', 'available', 2, 6, NULL, 'TANGA', '2025-03-04', 'available'),
-(4, 'T678DZT', 51, 'VIP B', 40000, NULL, 'available', 'available', 'available', NULL, 'available', 1, 2, NULL, 'DAR ES SALAAM', '2025-01-07', 'available'),
+(4, 'T678DZT', 51, 'VIP B', 40000, NULL, 'available', 'available', 'available', NULL, 'available', 1, 4, NULL, 'DAR ES SALAAM', '2025-01-07', 'available'),
 (5, 'T675EBM', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 2, 0, NULL, 'TANGA', '2025-01-07', 'available'),
 (11, 'T876EJS', 57, 'LUXURY', 35000, NULL, 'available', 'available', 'available', NULL, NULL, 1, 3, NULL, 'DAR ES SALAAM', '2025-01-08', 'available'),
 (12, 'T564EAC', 51, 'LUXURY', 35000, NULL, 'available', 'available', NULL, NULL, NULL, 1, 0, NULL, 'DAR ES SALAAM', '2025-01-08', 'available'),
@@ -299,7 +300,9 @@ INSERT INTO `passenger_info` (`passenger_ID`, `firstname`, `secondname`, `lastna
 (9, 'AGNES', 'ISRAEL', 'MOSHA', 'DAR ES SALAAM', 'TANGA', 'VIP B', 40000, 'T678DZT', 23, 'paid', '2025-04-20', 983777792, 312818074),
 (10, 'BERTHA', 'ISRAEL', 'MOSHA', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 13, 'paid', '2025-04-20', 186007992, 398476200),
 (11, 'NEEMA', 'GODSON', 'MAFOLE', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 24, 'paid', '2025-04-20', 119221927, 398476200),
-(12, 'MOHAMMED', 'SULTAN', 'MOHAMMED', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 29, 'paid', '2025-04-20', 968539968, 398476200);
+(12, 'MOHAMMED', 'SULTAN', 'MOHAMMED', 'TANGA', 'DAR ES SALAAM', 'VIP A', 40000, 'T879EJM', 29, 'paid', '2025-04-20', 968539968, 398476200),
+(13, 'GEORGE', 'GODSON', 'MAPHOLE', 'DAR ES SALAAM', 'TANGA', 'VIP B', 40000, 'T678DZT', 3, 'paid', '2026-01-29', 617764706, 710533023),
+(14, 'Nice', 'Said', 'Lutego', 'DAR ES SALAAM', 'TANGA', 'VIP B', 40000, 'T678DZT', 8, 'paid', '2026-01-29', 960099333, 710533023);
 
 -- --------------------------------------------------------
 
@@ -539,7 +542,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `bill_notification`
 --
 ALTER TABLE `bill_notification`
-  MODIFY `notify_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `notify_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `bus_info`
@@ -569,7 +572,7 @@ ALTER TABLE `expenses`
 -- AUTO_INCREMENT for table `passenger_info`
 --
 ALTER TABLE `passenger_info`
-  MODIFY `passenger_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `passenger_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `performance`

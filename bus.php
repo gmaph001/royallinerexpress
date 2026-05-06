@@ -43,7 +43,7 @@
         $confirm = false;
         $buses = false;
         $buses2 = false;
-        $route_ID;
+        
 
         if($result0){
             if(mysqli_num_rows($result0)>0){

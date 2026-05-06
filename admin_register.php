@@ -1,15 +1,15 @@
 <?php
 
-    require "connection.php";
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $from = $_GET['from'];
     $to = $_GET['to'];
     $date = $_GET['date'];
     $bus_no = $_GET['bus'];
     $seat = $_GET['seats'];
-    $class;
-    $fare;
+    
 
     $k = 0;
 

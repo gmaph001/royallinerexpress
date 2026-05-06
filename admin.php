@@ -3,12 +3,14 @@
     error_reporting(0);
 
     include "connection.php";
+    include "addr.php";
+    include "timer.php";
 
     $message = "";
 
     if(isset($_POST['login'])){
-        $username = $_POST['username'];
-        $password = $_POST['pword'];
+        $username = mysqli_real_escape_string($db, $_POST['username']);
+        $password = mysqli_real_escape_string($db, $_POST['pword']);
 
         if(!empty($_SERVER['HTTP_CLIENT_IP'])){
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -19,39 +21,52 @@
         else{
             $ip = $_SERVER['REMOTE_ADDR'];
         }
-    }
 
-    $query = "SELECT * FROM admin";
-    $result = mysqli_query($db, $query);
+        $query = "SELECT * FROM admin";
+        $result = mysqli_query($db, $query);
 
-    if(mysqli_num_rows($result)>0){
-        for($i=0; $i<mysqli_num_rows($result); $i++){
-            $row = mysqli_fetch_array($result);
+        $exist = False;
 
-            if($username === $row['username']){
-                if($password === $row['password']){
-                    $id = $row['userkey'];
-                    $querysec = "UPDATE admin SET security = '$ip' WHERE userkey = '$id'";
-                    $resultsec = mysqli_query($db, $querysec);
+        if(mysqli_num_rows($result)>0){
+            for($i=0; $i<mysqli_num_rows($result); $i++){
+                $row = mysqli_fetch_array($result);
 
-                    if($resultsec){
-                        header("location:admin_home.php?id=$id");
-                    }
-                    else{
-                        $message = "Error! Code 001";
+                if($username === $row['username']){
+                    $hash = $row['password'];
+                    if(password_verify($password, $hash)){
+                        $id = $row['userkey'];
+                        $querysec = "UPDATE admin SET security = '$ip' WHERE userkey = '$id'";
+                        $resultsec = mysqli_query($db, $querysec);
+
+                        session_set_cookie_params(0);
+                        session_start();
+                        session_regenerate_id(true);
+                            
+
+                        $_SESSION['userkey'] = $id;
+                        $_SESSION['userID']  = $_SERVER['HTTP_USER_AGENT'];
+
+                        if($resultsec){
+                            $exist = True;
+                            break;
+                        }
+                        else{
+                            $message .= "Error! Code 001";
+                        }
                     }
                 }
-                else{
-                    $message = "Incorrect Password! Please, <br> <a href='login.php'><i>try again</i></a>";
-                }
-            }
-            else{
-                $message = "Incorrect Username or password! Please, <br><br> <a href='login.php'><i>try again</i></a> <br>";
             }
         }
-    }
-    else{
-        $message = "There is no any registered account yet! Please, register to start. <br><br> <a href='login.php'>Register</a><br>";
+        else{
+            $message .= "There is no any registered account yet! Please, register to start. <br><br> <a href='login.php'>Register</a><br>";
+        }
+
+        if($exist){
+            header("location: admin_home.php?id=$id");
+        }
+        else{
+            $message .= "Incorrect Username or Password! <br><br> <a href='login.php'>Try Again</a><br>";
+        }
     }
 ?>
 <!DOCTYPE html>

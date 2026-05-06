@@ -1,6 +1,8 @@
 <?php
 
     include "connection.php";
+    include "addr.php";
+    include "timer.php";
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;

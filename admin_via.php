@@ -1,7 +1,8 @@
 <?php
 
-    require "connection.php";
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $from = $_GET['from'];
     $to = $_GET['to'];

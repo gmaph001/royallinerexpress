@@ -42,9 +42,7 @@
             $row = mysqli_fetch_array($result3);
 
             if($handler === $row['userkey']){
-                $name .= $row['firstname'];
-                $name .= " ";
-                $name .= $row['lastname'];
+                $name .= $row['firstname']." ".$row['lastname'];
                 $phone = $row['phone_no'];
             }
         }

@@ -1,6 +1,7 @@
 <?php
-    require "connection.php";
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $areas = [];
     $areas2 = [];

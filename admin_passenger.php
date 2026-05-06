@@ -1,7 +1,8 @@
 <?php
 
-    require "connection.php";
+    include "connection.php";
     include "addr.php";
+    include "timer.php";
 
     $from = $_GET['from'];
     $to = $_GET['to'];
@@ -18,10 +19,6 @@
     $stat4 = false;
 
     $paystatus = "paid";
-    $class;
-    $fare;
-    $filled;
-
     $firstname = [];
     $secondname = [];
     $lastname = [];
@@ -131,34 +128,36 @@
     if($local){
         $bill_time = Date('H:i:s');
         $bill_date = Date('Y-m-d');
-    }
+    
 
-    $query = "INSERT INTO billing(bill_name, phone, email, bill, bill_time, bill_date, bill_key) VALUES('$name', '$phone', '$email', '$fare', '$bill_time', '$bill_date', '$billkey')";
-    $result = mysqli_query($db, $query);
+        $query = "INSERT INTO billing(bill_name, phone, email, bill, bill_time, bill_date, bill_key) VALUES('$name', '$phone', '$email', '$fare', '$bill_time', '$bill_date', '$billkey')";
+        $result = mysqli_query($db, $query);
+    
 
-    if($result){
-        $stat3 = true;
-    }
-    else{
-        $message .= "Failed to enter bill!<br><br>";
-        $stat3 = false;
-    }
+        if($result){
+            $stat3 = true;
+        }
+        else{
+            $message .= "Failed to enter bill!<br><br>";
+            $stat3 = false;
+        }
 
-    $query4 = "INSERT INTO performance(user_ID, income, tickets, bill_key, bill_date) VALUES('$id', '$fare', '$size', '$billkey', '$bill_date')";
-    $result4 = mysqli_query($db, $query4);
+        $query4 = "INSERT INTO performance(user_ID, income, tickets, bill_key, bill_date) VALUES('$id', '$fare', '$size', '$billkey', '$bill_date')";
+        $result4 = mysqli_query($db, $query4);
+    
 
-    if($result4){
-        $stat4 = true;
-    }
-    else{
-        $message .= "Failed to update Performance!<br><br>";
-        $stat4 = false;
-    }
+        if($result4){
+            $stat4 = true;
+        }
+        else{
+            $message .= "Failed to update Performance!<br><br>";
+            $stat4 = false;
+        }
 
-    if($stat && $stat2 && $stat3 && $stat4){
-        header("location:admin_passenger_no.php?id=$id&&bill=$billkey");
-    }
-    else{
+        if($stat && $stat2 && $stat3 && $stat4){
+            header("location:admin_passenger_no.php?id=$id&&bill=$billkey");
+        }
+        else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,5 +178,6 @@
 </html>
 <?php
 
+        }
     }
 ?>

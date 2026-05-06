@@ -1,5 +1,7 @@
 <?php
-
+    include "connection.php";
+    include "addr.php";
+    include "timer.php";
     $id = $_GET['id'];
 
 ?>
